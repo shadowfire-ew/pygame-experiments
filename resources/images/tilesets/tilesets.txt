@@ -5,10 +5,12 @@ list of tilesets:
 
 tilesets layouts:
 - floors sets:
+    R1: grid tiles
     - hole
     - water
     - floor
     - wall middle
+    R2: wall seperators
     - wall south
     - wall east
     - wall north
