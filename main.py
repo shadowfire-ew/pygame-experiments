@@ -3,7 +3,7 @@ pygame.init()
 
 size = width,height = 1080,960
 
-bg = 255,0,0
+bg = 255,0,255
 
 def main():
     print("start main")
