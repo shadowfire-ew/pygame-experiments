@@ -9,7 +9,13 @@ def main():
     print("start main")
     looping = True
     screen = pygame.display.set_mode(size)
-    while looping:
+    while True:
+        for event in pygame.event.get():
+            # checking if we have our exit event
+            looping = (event.type != pygame.QUIT)
+
+        # actually exiting
+        if not looping: break
         # do stuff
 
         # update display
@@ -19,10 +25,6 @@ def main():
         # complete display
         pygame.display.flip()
 
-        # at the end of the loop
-        for event in pygame.event.get():
-            # checking if we have our exit event
-            looping = (event.type != pygame.QUIT)
         
     return "good"
 
