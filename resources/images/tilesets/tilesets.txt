@@ -10,12 +10,8 @@ tilesets layouts:
     - water
     - floor
     - wall middle
-    R2: wall seperators
-    - wall south
-    - wall east
-    - wall north
-    - wall west
-
-wall middle will take place in the tile
-each direction of wall will have transparency
-this will let me overlay the various directions where wall tiles touch non-wall tiles (eventually)
+    R2: seperators (with transparency)
+    - hole edge
+    - water edge
+    - floor edge
+    - wall edge
