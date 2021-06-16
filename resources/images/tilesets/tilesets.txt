@@ -1,17 +1,22 @@
-tilesets contain groups of 80x80 tiles
-
 list of tilesets:
 - lab
 
 tilesets layouts:
-- floors sets:
-    R1: grid tiles
+- Tiles (80x80 each): the floor pieces
+    R1:
     - hole
     - water
+    R2:
     - floor
-    - wall middle
-    R2: seperators (with transparency)
+    - wall
+- borders (40x40 each): go in the corners of the floors
+    R1:
     - hole edge
+    - hole corner
     - water edge
+    - water corner
+    R2:
     - floor edge
+    - floor corner
     - wall edge
+    - wall corner
