@@ -1,14 +1,19 @@
 tilesets contain groups of 80x80 tiles
 
 list of tilesets:
-- lab_floors
-- lab_walls
+- lab
 
 tilesets layouts:
 - floors sets:
--- hole
--- water
--- floor
--- floor variant
-- walls sets:
---
+    - hole
+    - water
+    - floor
+    - wall middle
+    - wall south
+    - wall east
+    - wall north
+    - wall west
+
+wall middle will take place in the tile
+each direction of wall will have transparency
+this will let me overlay the various directions where wall tiles touch non-wall tiles (eventually)
