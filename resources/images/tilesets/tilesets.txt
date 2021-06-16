@@ -1,0 +1,14 @@
+tilesets contain groups of 80x80 tiles
+
+list of tilesets:
+- lab_floors
+- lab_walls
+
+tilesets layouts:
+- floors sets:
+-- hole
+-- water
+-- floor
+-- floor variant
+- walls sets:
+--
