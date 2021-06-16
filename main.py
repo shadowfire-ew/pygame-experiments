@@ -23,7 +23,9 @@ def main():
         for event in pygame.event.get():
             # checking if we have our exit event
             looping = (event.type != pygame.QUIT)
-    return
+        
+    return "good"
 
 if __name__ == "__main__":
-    main()
+    print("exit = " + main())
+    print("finished")
