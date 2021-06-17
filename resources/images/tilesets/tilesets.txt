@@ -1,4 +1,5 @@
 list of tilesets:
+- template
 - lab
 
 tilesets layouts:
