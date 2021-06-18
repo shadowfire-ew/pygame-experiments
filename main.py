@@ -1,5 +1,4 @@
 import pygame
-pygame.init()
 
 size = width,height = 1280,960
 # planning for 80x80 tiles
@@ -8,13 +7,16 @@ size = width,height = 1280,960
 bg = 255,0,255
 
 def main():
+    pygame.init()
     print("start main")
     looping = True
     screen = pygame.display.set_mode(size)
     while True:
+        #main loop
+        
         for event in pygame.event.get():
             # checking the event queue
-            
+
             # checking if we have our exit event
             looping = (event.type != pygame.QUIT)
 
