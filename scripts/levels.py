@@ -20,3 +20,18 @@ class Level(object):
         self.height = len(self.map)
     
     def get_tile(self, x, y):
+        try:
+            char = self.map[y,x]
+            # speculation:
+            # it searches by y,x because of how it is laid out
+            # i.e, in 
+            #[[a,b,c],
+            # [d,e,f]]
+            # y goes from top to bottom
+            # and x goes from left to right
+        except IndexError:
+            return {}
+        try:
+            return key[char]
+        except KeyError:
+            return {}
