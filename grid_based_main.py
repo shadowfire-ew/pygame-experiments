@@ -1,3 +1,4 @@
+from scripts.load_tile_table import load_tile_table
 import pygame
 
 size = width,height = 1280,960
@@ -6,11 +7,15 @@ size = width,height = 1280,960
 
 bg = 115,0,115
 
+images = "resources/images/"
+
 def main():
     pygame.init()
     print("start main")
     looping = True
     screen = pygame.display.set_mode(size)
+
+    floors = load_tile_table(images+"/tilesets/lab-tiles.png",[80])
     while True:
         #main loop
         
