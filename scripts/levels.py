@@ -1,6 +1,7 @@
 from pygame import ConfigParser
 
 maps_folder="resources/maps/"
+#decided on a shared tile type, because this is just an experiment
 key = {
     '.':"hole",
     '#':"floor",
