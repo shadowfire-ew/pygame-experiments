@@ -1,0 +1,10 @@
+maps will describe pre-built layouts for levels
+only using these for certain things, such as dev room and prefab rooms
+will assume everything not defined will be wall
+the loader will try its best to center the maps
+
+tiles:
+. > hole
+# > floor
+% > wall
+^ > water
