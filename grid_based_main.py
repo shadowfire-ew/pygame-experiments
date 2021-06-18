@@ -4,7 +4,7 @@ size = width,height = 1280,960
 # planning for 80x80 tiles
 #would make the grid 16 , 12
 
-bg = 255,0,255
+bg = 115,0,115
 
 def main():
     pygame.init()
