@@ -13,6 +13,8 @@ def main():
     screen = pygame.display.set_mode(size)
     while True:
         for event in pygame.event.get():
+            # checking the event queue
+            
             # checking if we have our exit event
             looping = (event.type != pygame.QUIT)
 
