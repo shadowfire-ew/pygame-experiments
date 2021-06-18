@@ -34,14 +34,11 @@ def main():
         # clear background
         screen.fill(bg)
         # update the background
-        for x, row in enumerate(tiles):
-            for y, tile in enumerate(row):
-                screen.blit(tile, (x*80, y*80))
-                # just doing this to test the images
-                # this will also put some space between them
-        for x,row in enumerate(borders):
-            for y, tile in enumerate(row):
-                screen.blit(tile, (x*40,y*80))
+        for x in range(width//80):
+            for y in range(height//80):
+                screen.blit(tiles[(x//4)%2][(y//4)%2],(x*80,y*80))
+        # the overlays
+        
         # fore ground stuff
         # complete display
         pygame.display.flip()
