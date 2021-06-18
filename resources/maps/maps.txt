@@ -8,3 +8,7 @@ tiles:
 # > floor
 % > wall
 ^ > water
+
+current maps:
+- dev
+- WIP
