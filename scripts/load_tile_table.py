@@ -19,9 +19,9 @@ def load_tile_table(filename, size):
     image = pygame.image.load(filename).convert()
     im_width, im_height = image.get_size()
     tile_table = []
-    for tile_x in range(0, im_width/width):
+    for tile_x in range(0, im_width//width):
         line = []
-        for tile_y in range(0, im_height/height):
+        for tile_y in range(0, im_height//height):
             rect = (tile_x*width, tile_y*height,width,height)
             line.append(image.subsurface(rect))
         tile_table.append(line)
