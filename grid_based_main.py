@@ -1,8 +1,10 @@
 from scripts.load_tile_table import load_tile_table
 import pygame
 
-size = width,height = 1280,960
-grid = gwidth,gheight = width//80,height//80
+
+tilesize = 80
+grid = gwidth,gheight = 16,12
+size = width,height = (gwidth*tilesize),(gheight*tilesize)
 # planning for 80x80 tiles
 #would make the grid 16 , 12
 
@@ -16,8 +18,8 @@ def main():
     looping = True
     screen = pygame.display.set_mode(size)
 
-    tiles = load_tile_table(images+"/tilesets/lab-tiles.png",[80])
-    borders = load_tile_table(images+"/tilesets/lab-borders.png",[40])
+    tiles = load_tile_table(images+"/tilesets/lab-tiles.png",[tilesize])
+    borders = load_tile_table(images+"/tilesets/lab-borders.png",[tilesize//2])
     while True:
         #main loop
         
