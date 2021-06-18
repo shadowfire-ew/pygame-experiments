@@ -36,7 +36,7 @@ def main():
         # update the background
         for x in range(width//80):
             for y in range(height//80):
-                screen.blit(tiles[(x//4)%2][(y//4)%2],(x*80,y*80))
+                screen.blit(tiles[(x//4)%2][(y//3)%2],(x*80,y*80))
         # the overlays
         
         # fore ground stuff
