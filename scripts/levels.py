@@ -11,6 +11,7 @@ key = {
 class Level(object):
     def load_file(self, filename):
         self.map = []
+        parser = ConfigParser.ConfigParser()
         parser.read(maps_folder+"filename")
         self.tileset = parser.get("level","tileset")
         self.map = parser.get("level","map").split('\n')
