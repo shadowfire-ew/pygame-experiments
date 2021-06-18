@@ -2,6 +2,7 @@ from scripts.load_tile_table import load_tile_table
 import pygame
 
 size = width,height = 1280,960
+grid = gwidth,gheight = width//80,height//80
 # planning for 80x80 tiles
 #would make the grid 16 , 12
 
@@ -34,8 +35,8 @@ def main():
         # clear background
         screen.fill(bg)
         # update the background
-        for x in range(width//80):
-            for y in range(height//80):
+        for x in range(gwidth):
+            for y in range(gheight):
                 screen.blit(tiles[(x//4)%2][(y//3)%2],(x*80,y*80))
         # the overlays
         
