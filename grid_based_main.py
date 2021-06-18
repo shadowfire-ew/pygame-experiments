@@ -36,12 +36,12 @@ def main():
         # update the background
         for x, row in enumerate(tiles):
             for y, tile in enumerate(row):
-                screen.blit(tile, (x*90, y*90))
+                screen.blit(tile, (x*80, y*80))
                 # just doing this to test the images
                 # this will also put some space between them
         for x,row in enumerate(borders):
             for y, tile in enumerate(row):
-                screen.blit(tile, (x*45,y*45))
+                screen.blit(tile, (x*40,y*80))
         # fore ground stuff
         # complete display
         pygame.display.flip()
