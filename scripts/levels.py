@@ -35,3 +35,14 @@ class Level(object):
             return key[char]
         except KeyError:
             return {}
+    
+    def render(self, width, height):
+        """
+        will create an image of the map
+        and also an overlay image of the borders
+
+        width, is the grid width, height is the grid height
+        """
+        # find a way to center the level in the image
+        startx = width//2 - self.width//2
+        starty = height//2 - self.height//2
