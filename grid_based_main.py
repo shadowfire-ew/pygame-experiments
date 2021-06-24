@@ -18,9 +18,6 @@ def main():
     # setting up the screen
     screen = pygame.display.set_mode(ly.size)
 
-    #loading the images
-    tiles = load_tile_table("lab-tiles.png",ly.tilesize)
-    borders = load_tile_table("lab-borders.png",ly.tilesize//2)
 
     # loading the level
     test_level = Level()
