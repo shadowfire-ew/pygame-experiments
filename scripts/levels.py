@@ -36,7 +36,7 @@ class Level(object):
         except KeyError:
             return {}
     
-    def render(self, width, height):
+    def render(self):
         """
         will create an image of the map
         and also an overlay image of the borders
@@ -44,5 +44,16 @@ class Level(object):
         width, is the grid width, height is the grid height
         """
         # find a way to center the level in the image
-        startx = width//2 - self.width//2
-        starty = height//2 - self.height//2
+        startx = ly.width//2 - self.width//2
+        starty = ly.height//2 - self.height//2
+
+        # load the images
+        tiles = load_tile_table(maps_folder+self.tileset+"-tiles.png", ly.tilesize)
+        borders = load_tile_table(maps_folder+self.tileset+"-borders.png", ly.tilesize//2)
+
+        # prepare the canvas
+        image = pygame.Surface(ly.size)
+
+        for x in range(ly.gwidth):
+            for y in range(ly.gheight):
+                pass
