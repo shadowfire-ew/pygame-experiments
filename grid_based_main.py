@@ -25,8 +25,8 @@ def main():
     # setting up the screen
     screen = pygame.display.set_mode(size)
 
-    tiles = load_tile_table(images+"/tilesets/lab-tiles.png",[tilesize])
-    borders = load_tile_table(images+"/tilesets/lab-borders.png",[tilesize//2])
+    tiles = load_tile_table(images+"/tilesets/lab-tiles.png",tilesize)
+    borders = load_tile_table(images+"/tilesets/lab-borders.png",tilesize//2)
     while True:
         #main loop
         

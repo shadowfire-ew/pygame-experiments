@@ -3,21 +3,19 @@ from functools import lru_cache
 
 #using an lru cache to hold onto some values
 @lru_cache(maxsize=10)
-def load_tile_table(filename, size):
+def load_tile_table(filename, width, height = None):
     """
     will load the tileset as an array of subsurfaces
     parameters:
         filename (string) - the filename
-        size (list) - size of tile in pixels 
-            shape determines how it is parsed
+        width: width of tile in pixels
+        height: height of tile in pixels
+            - if height is None, height will copy width
     """
-    # setting up the width and height
-    width = size[0]
-    height = size[0]
 
-    if len(size) == 2:
+    if height is None:
         # in case a height is included
-        height = size[1]
+        height = width
 
     image = pygame.image.load(filename).convert()
     im_width, im_height = image.get_size()
