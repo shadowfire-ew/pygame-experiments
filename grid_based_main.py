@@ -5,8 +5,6 @@ import pygame
 
 bg = 115,0,115
 
-images = "resources/images/"
-
 def main():
     """
     the main function
@@ -21,12 +19,13 @@ def main():
     screen = pygame.display.set_mode(ly.size)
 
     #loading the images
-    tiles = load_tile_table(images+"/tilesets/lab-tiles.png",ly.tilesize)
-    borders = load_tile_table(images+"/tilesets/lab-borders.png",ly.tilesize//2)
+    tiles = load_tile_table("lab-tiles.png",ly.tilesize)
+    borders = load_tile_table("lab-borders.png",ly.tilesize//2)
 
     # loading the level
     test_level = Level()
     test_level.load_file("dev.map")
+    level_image, level_overlay = test_level.render()
 
     while True:
         #main loop
@@ -45,9 +44,6 @@ def main():
         # clear background
         screen.fill(bg)
         # update the background
-        for x in range(ly.gwidth):
-            for y in range(ly.gheight):
-                screen.blit(tiles[(x//4)%2][(y//3)%2],(x*80,y*80))
         # the overlays
         
         # fore ground stuff
