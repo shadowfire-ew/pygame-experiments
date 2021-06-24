@@ -17,7 +17,6 @@ class Level(object):
         self.map = []
         parser = ConfigParser()
         name = maps_folder+filename
-        print(name)
         parser.read(name)
         self.tileset = parser.get("level","tileset")
         self.map = parser.get("level","map").split('\n')
