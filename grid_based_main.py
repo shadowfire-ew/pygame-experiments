@@ -13,6 +13,12 @@ bg = 115,0,115
 images = "resources/images/"
 
 def main():
+    """
+    the main function
+    contains the main loop
+
+    returns strings with statuses
+    """
     pygame.init()
     print("start main")
     # controll variable
