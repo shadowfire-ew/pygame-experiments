@@ -6,7 +6,7 @@ tilesize = 80
 grid = gwidth,gheight = 16,12
 size = width,height = (gwidth*tilesize),(gheight*tilesize)
 # planning for 80x80 tiles
-#would make the grid 16 , 12
+# would make the grid 16 , 12
 
 bg = 115,0,115
 
@@ -15,7 +15,9 @@ images = "resources/images/"
 def main():
     pygame.init()
     print("start main")
+    # controll variable
     looping = True
+    # setting up the screen
     screen = pygame.display.set_mode(size)
 
     tiles = load_tile_table(images+"/tilesets/lab-tiles.png",[tilesize])
@@ -46,7 +48,7 @@ def main():
         # complete display
         pygame.display.flip()
 
-        
+    # returning a code
     return "good"
 
 if __name__ == "__main__":
