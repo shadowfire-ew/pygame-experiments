@@ -1,12 +1,6 @@
 from scripts.load_tile_table import load_tile_table
+import scripts.layout as ly
 import pygame
-
-
-tilesize = 80
-grid = gwidth,gheight = 16,12
-size = width,height = (gwidth*tilesize),(gheight*tilesize)
-# planning for 80x80 tiles
-# would make the grid 16 , 12
 
 bg = 115,0,115
 
@@ -23,10 +17,10 @@ def main():
     # controll variable
     looping = True
     # setting up the screen
-    screen = pygame.display.set_mode(size)
+    screen = pygame.display.set_mode(ly.size)
 
-    tiles = load_tile_table(images+"/tilesets/lab-tiles.png",tilesize)
-    borders = load_tile_table(images+"/tilesets/lab-borders.png",tilesize//2)
+    tiles = load_tile_table(images+"/tilesets/lab-tiles.png",ly.tilesize)
+    borders = load_tile_table(images+"/tilesets/lab-borders.png",ly.tilesize//2)
     while True:
         #main loop
         
@@ -44,8 +38,8 @@ def main():
         # clear background
         screen.fill(bg)
         # update the background
-        for x in range(gwidth):
-            for y in range(gheight):
+        for x in range(ly.gwidth):
+            for y in range(ly.gheight):
                 screen.blit(tiles[(x//4)%2][(y//3)%2],(x*80,y*80))
         # the overlays
         
