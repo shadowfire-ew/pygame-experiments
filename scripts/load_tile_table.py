@@ -5,7 +5,7 @@ def load_tile_table(filename, size):
     will load the tileset as an array of subsurfaces
     parameters:
         filename (string) - the filename
-        size (tuple) - size of image in pixels 
+        size (list) - size of tile in pixels 
             shape determines how it is parsed
     """
     # setting up the width and height
