@@ -1,7 +1,10 @@
-from pygame import ConfigParser
+from scripts.load_tile_table import load_tile_table
+import pygame
+from configparser import ConfigParser
+import scripts.layout as ly
 
 maps_folder="resources/maps/"
-#decided on a shared tile type, because this is just an experiment
+#decided on shared tile types, because this is just an experiment
 key = {
     '.':"hole",
     '#':"floor",
@@ -12,8 +15,10 @@ key = {
 class Level(object):
     def load_file(self, filename):
         self.map = []
-        parser = ConfigParser.ConfigParser()
-        parser.read(maps_folder+"filename")
+        parser = ConfigParser()
+        name = maps_folder+filename
+        print(name)
+        parser.read(name)
         self.tileset = parser.get("level","tileset")
         self.map = parser.get("level","map").split('\n')
         self.width = len(self.map[0])
