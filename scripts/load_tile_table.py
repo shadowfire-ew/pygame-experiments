@@ -1,5 +1,8 @@
 import pygame
+from functools import lru_cache
 
+#using an lru cache to hold onto some values
+@lru_cache(maxsize=10)
 def load_tile_table(filename, size):
     """
     will load the tileset as an array of subsurfaces
