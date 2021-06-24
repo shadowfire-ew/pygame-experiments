@@ -53,12 +53,15 @@ class Level(object):
         starty = ly.height//2 - self.height//2
 
         # load the images
-        tiles = load_tile_table(maps_folder+self.tileset+"-tiles.png", ly.tilesize)
-        borders = load_tile_table(maps_folder+self.tileset+"-borders.png", ly.tilesize//2)
+        tiles = load_tile_table(self.tileset+"-tiles.png", ly.tilesize)
+        borders = load_tile_table(self.tileset+"-borders.png", ly.tilesize//2)
 
         # prepare the canvas
         image = pygame.Surface(ly.size)
+        overlay = {}
 
         for x in range(ly.gwidth):
             for y in range(ly.gheight):
                 pass
+        
+        return image, overlay
