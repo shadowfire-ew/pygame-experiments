@@ -1,3 +1,4 @@
+from scripts.levels import Level
 from scripts.load_tile_table import load_tile_table
 import scripts.layout as ly
 import pygame
@@ -19,8 +20,14 @@ def main():
     # setting up the screen
     screen = pygame.display.set_mode(ly.size)
 
+    #loading the images
     tiles = load_tile_table(images+"/tilesets/lab-tiles.png",ly.tilesize)
     borders = load_tile_table(images+"/tilesets/lab-borders.png",ly.tilesize//2)
+
+    # loading the level
+    test_level = Level()
+    test_level.load_file("dev.map")
+
     while True:
         #main loop
         
