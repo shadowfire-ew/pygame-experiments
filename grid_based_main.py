@@ -20,7 +20,6 @@ def main():
     returns strings with statuses
     """
     pygame.init()
-    print("start main")
     # controll variable
     looping = True
     # setting up the screen
