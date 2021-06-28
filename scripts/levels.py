@@ -61,7 +61,7 @@ class Level(object):
 
         # prepare the canvas
         image = pygame.Surface(ly.size)
-        overlay = []
+        objects = []
 
         for x in range(ly.gwidth):
             for y in range(ly.gheight):
@@ -76,5 +76,3 @@ class Level(object):
                 tile_image = tiles[tile][0]
                 # applying the image
                 image.blit(tile_image,(x*ly.tilesize,y*ly.tilesize))
-
-        return image, overlay
