@@ -7,7 +7,7 @@ maps_folder="resources/maps/"
 #decided on shared tile types, because this is just an experiment
 key = {
     '.':"hole",
-    '#':"floor",
+    'f':"floor",
     '+':"wall",
     '^':"water"
 }
