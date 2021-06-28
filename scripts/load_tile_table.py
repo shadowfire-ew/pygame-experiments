@@ -3,11 +3,16 @@ from functools import lru_cache
 
 location = "resources/images/tilesets/"
 
-tiles = {
+base = {
     "hole":0,
-    "floor":1,
-    "water":2,
+    "water":1,
+    "floor":2,
     "wall":3
+}
+border = {
+    "convex":0,
+    "straight":1,
+    "concave":2
 }
 
 #using an lru cache to hold onto some values
