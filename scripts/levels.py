@@ -36,10 +36,12 @@ class Level(object):
             # y goes from top to bottom
             # and x goes from left to right
         except IndexError:
+            print("error getting char")
             return {}
         try:
             return key[char]
         except KeyError:
+            print("error getting key[char]")
             return {}
     
     def render(self):
