@@ -76,3 +76,41 @@ class Level(object):
                 tile_image = tiles[tile][0]
                 # applying the image
                 image.blit(tile_image,(x*ly.tilesize,y*ly.tilesize))
+                # now for the overlays
+                if (-1<=nx<=self.width) and (-1<=ny<=self.height):
+                    # only need to worry about the tiles in and directly around the map
+                    # checking the adjacency of the corners
+                    # this list is for contoll
+                    ls = [-1,1]
+                    for TB in ls:
+                        # top-bottom
+                        for LR in ls:
+                            # left-right (of tile)
+                            type = 0
+                            #finding the neighbors of this corner
+                            a = (label != self.get_tile(nx+LR,ny))
+                            b = (label != self.get_tile(nx,ny+TB))
+                            # these if's determine which type of corner
+                            # 0 is convex or none
+                            # 1 is flat
+                            # 2 is concave
+                            if b:
+                                type += 1
+                            if a:
+                                type += 1
+                            # in this order because pygame.transform.rotate is counter clockwise
+                            if type == 0 and label == self.get_tile(nx+LR,ny+TB):
+                                # when all of the neighbors of that corner are the same
+                                type = 3
+                            # now to add the image
+                            if type != 3:
+                                # normalizing the TB and LR to 0-1
+                                TBa = (TB+1)//2
+                                LRa = (LR +1)//2
+                                # our x for the object
+                                bx = x + LRa/2
+                                by = y + TBa/2
+                                #the base angle of rotation
+                                angle = (TBa*(90)+LRa*(90))*(LR)+90
+                                print(TB,LR,angle)
+        return image, objects
