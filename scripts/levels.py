@@ -65,6 +65,13 @@ class Level(object):
 
         for x in range(ly.gwidth):
             for y in range(ly.gheight):
-                pass
+                # the background tiles
+                tile_image = None
+                if (startx <= x < startx+self.width) and (starty <= y < starty+self.height):
+                    nx = x - startx
+                    ny = y - starty
+                    label = self.get_tile(nx,ny)
+
+                    
         
         return image, overlay
