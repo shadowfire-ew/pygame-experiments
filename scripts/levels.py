@@ -8,7 +8,7 @@ maps_folder="resources/maps/"
 key = {
     '.':"hole",
     '#':"floor",
-    '%':"wall",
+    '+':"wall",
     '^':"water"
 }
 
