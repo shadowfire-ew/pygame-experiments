@@ -74,6 +74,7 @@ class Level(object):
                 tile = lt.base[label]
                 # getting the tile from the table
                 tile_image = tiles[tile][0]
+                # applying the image
                 image.blit(tile_image,(x*ly.tilesize,y*ly.tilesize))
 
         return image, overlay
