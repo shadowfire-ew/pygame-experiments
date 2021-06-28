@@ -1,7 +1,9 @@
 [level]
 tileset = lab
-map =   ^^fff^^
-        ^^fff^^
-        fff.fff
-        ^^fff^^
-        ^^fff^^
+map =   ^^ff..ff^^
+        ^^ff..ff^^
+        f^ff.fff^f
+        ffffffffff
+        f^fff.ff^f
+        ^^ff..ff^^
+        ^^ff..ff^^
