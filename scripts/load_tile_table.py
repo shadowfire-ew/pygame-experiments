@@ -5,8 +5,8 @@ location = "resources/images/tilesets/"
 
 base = {
     "hole":0,
-    "water":1,
-    "floor":2,
+    "floor":1,
+    "water":2,
     "wall":3
 }
 border = {
