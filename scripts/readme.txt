@@ -1,9 +1,10 @@
 this folder contains all the mechanics used or to be implemented
 
                     Mechanics:
-In Progress:
+Done:
 - tileset loader
-- map display
+In Progress:
+- map loading / display
 To Do: (in no particular order)
 - a player character
 - enemies
