@@ -71,7 +71,5 @@ class Level(object):
                     nx = x - startx
                     ny = y - starty
                     label = self.get_tile(nx,ny)
-
-                    
-        
+                    tile = lt.base[label]
         return image, overlay
