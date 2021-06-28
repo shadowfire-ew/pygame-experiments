@@ -71,4 +71,7 @@ class Level(object):
                     ny = y - starty
                     label = self.get_tile(nx,ny)
                     tile = lt.base[label]
+                tile_image = tiles[tile][0]
+                image.blit(tile_image,(x*ly.tilesize,y*ly.tilesize))
+
         return image, overlay
