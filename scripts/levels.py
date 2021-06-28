@@ -107,10 +107,13 @@ class Level(object):
                                 # normalizing the TB and LR to 0-1
                                 TBa = (TB+1)//2
                                 LRa = (LR +1)//2
-                                # our x for the object
-                                bx = x + LRa/2
-                                by = y + TBa/2
                                 #the base angle of rotation
                                 angle = (TBa*(90)+LRa*(90))*(LR)+90
                                 print(TB,LR,angle)
+                                #getting and rotating the image
+                                border_image = pygame.transform.rotate(borders[tile][type],angle)
+                                # our x and y for the border image
+                                bx = x + LRa/2
+                                by = y + TBa/2
+                                image.blit(border_image,(bx*ly.tilesize,by*ly.tilesize))
         return image, objects
