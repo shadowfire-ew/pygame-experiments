@@ -116,8 +116,6 @@ class Level(object):
                                 if type == 1:
                                     if (a and (TB != LR)) or (b and (TB == LR)):
                                         angle -= 90
-                                # a debugging print function
-                                print(angle)
                                 #getting and rotating the image
                                 border_image = pygame.transform.rotate(borders[tile][type],angle)
                                 # our x and y for the border image
