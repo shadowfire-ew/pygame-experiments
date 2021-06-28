@@ -41,6 +41,7 @@ def main():
         # clear background
         screen.fill(bg)
         # update the background
+        screen.blit(level_image,(0,0))
         # the overlays
         # fore ground stuff
         # complete display
