@@ -26,7 +26,6 @@ class Level(object):
     def get_tile(self, x, y):
         char = None
         try:
-            print(x,y)
             char = self.map[y][x]
             # speculation:
             # it searches by y,x because of how it is laid out
