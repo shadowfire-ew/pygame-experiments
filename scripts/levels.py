@@ -52,8 +52,8 @@ class Level(object):
         width, is the grid width, height is the grid height
         """
         # find a way to center the level in the image
-        startx = ly.width//2 - self.width//2
-        starty = ly.height//2 - self.height//2
+        startx = ly.gwidth//2 - self.width//2
+        starty = ly.gheight//2 - self.height//2
 
         # load the images
         tiles = lt.load_tile_table(self.tileset+"-tiles.png", ly.tilesize)
