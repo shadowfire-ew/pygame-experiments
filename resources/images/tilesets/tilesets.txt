@@ -12,4 +12,4 @@ tilesets layouts:
     (rows follow same pattern as above)
     - convex corner
     - straight border
-    - concave border
+    - concave corner
