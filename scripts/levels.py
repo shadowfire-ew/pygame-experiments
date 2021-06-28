@@ -94,11 +94,10 @@ class Level(object):
                             # 0 is convex or none
                             # 1 is flat
                             # 2 is concave
-                            if b:
-                                type += 1
                             if a:
                                 type += 1
-                            # in this order because pygame.transform.rotate is counter clockwise
+                            if b:
+                                type += 1
                             if type == 0 and label == self.get_tile(nx+LR,ny+TB):
                                 # when all of the neighbors of that corner are the same
                                 type = 3
