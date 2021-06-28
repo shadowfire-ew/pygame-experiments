@@ -1,4 +1,4 @@
-from scripts.load_tile_table import load_tile_table
+import scripts.load_tile_table as lt
 import pygame
 from configparser import ConfigParser
 import scripts.layout as ly
@@ -56,8 +56,8 @@ class Level(object):
         starty = ly.height//2 - self.height//2
 
         # load the images
-        tiles = load_tile_table(self.tileset+"-tiles.png", ly.tilesize)
-        borders = load_tile_table(self.tileset+"-borders.png", ly.tilesize//2)
+        tiles = lt.load_tile_table(self.tileset+"-tiles.png", ly.tilesize)
+        borders = lt.load_tile_table(self.tileset+"-borders.png", ly.tilesize//2)
 
         # prepare the canvas
         image = pygame.Surface(ly.size)
