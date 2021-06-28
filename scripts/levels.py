@@ -108,7 +108,16 @@ class Level(object):
                                 LRa = (LR +1)//2
                                 # the base angle of rotation
                                 angle = (TBa*(90)+LRa*(90))*(LR)+90
-                                print(TB,LR,angle)
+                                # handling wrong angle errors
+                                # my initially noticed errors were the corners of differing TB/LR
+                                if (TB != LR):
+                                    angle -= 180
+                                # my remaining errors were only flats
+                                if type == 1:
+                                    if (a and (TB != LR)) or (b and (TB == LR)):
+                                        angle -= 90
+                                # a debugging print function
+                                print(angle)
                                 #getting and rotating the image
                                 border_image = pygame.transform.rotate(borders[tile][type],angle)
                                 # our x and y for the border image
