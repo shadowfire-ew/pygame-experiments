@@ -106,7 +106,7 @@ class Level(object):
                                 # normalizing the TB and LR to 0-1
                                 TBa = (TB+1)//2
                                 LRa = (LR +1)//2
-                                #the base angle of rotation
+                                # the base angle of rotation
                                 angle = (TBa*(90)+LRa*(90))*(LR)+90
                                 print(TB,LR,angle)
                                 #getting and rotating the image
