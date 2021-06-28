@@ -42,7 +42,6 @@ def main():
         screen.fill(bg)
         # update the background
         # the overlays
-        
         # fore ground stuff
         # complete display
         pygame.display.flip()
