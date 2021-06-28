@@ -24,9 +24,10 @@ class Level(object):
         self.height = len(self.map)
     
     def get_tile(self, x, y):
-        char = None
+        char = '+'
         try:
-            char = self.map[y][x]
+            if (0<=x<self.width) and (0<= y < self.height):
+                char = self.map[y][x]
             # speculation:
             # it searches by y,x because of how it is laid out
             # i.e, in 
@@ -65,12 +66,13 @@ class Level(object):
         for x in range(ly.gwidth):
             for y in range(ly.gheight):
                 # the background tiles
-                tile_image = None
-                if (startx <= x < startx+self.width) and (starty <= y < starty+self.height):
-                    nx = x - startx
-                    ny = y - starty
-                    label = self.get_tile(nx,ny)
-                    tile = lt.base[label]
+                tile=-1
+                nx = x - startx
+                ny = y - starty
+                # the get_tile now handles when the nx and ny are out of range
+                label = self.get_tile(nx,ny)
+                tile = lt.base[label]
+                # getting the tile from the table
                 tile_image = tiles[tile][0]
                 image.blit(tile_image,(x*ly.tilesize,y*ly.tilesize))
 
