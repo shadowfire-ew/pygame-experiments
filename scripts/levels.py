@@ -60,7 +60,7 @@ class Level(object):
 
         # prepare the canvas
         image = pygame.Surface(ly.size)
-        overlay = {}
+        overlay = []
 
         for x in range(ly.gwidth):
             for y in range(ly.gheight):
