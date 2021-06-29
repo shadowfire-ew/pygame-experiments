@@ -22,6 +22,6 @@ class GameObject:
     
     def get_location(self):
         "returns the true location in the image"
-        tx = self.x*ly.tilesize + (ly.tilesize-self.width)
-        ty = self.x*ly.tilesize + (ly.tilesize-self.height)
+        tx = self.x*ly.tilesize + (ly.tilesize-self.width)//2
+        ty = self.x*ly.tilesize + (ly.tilesize-self.height)//2
         return(tx,ty)
