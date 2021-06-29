@@ -1,1 +1,6 @@
 this folder will contain configs for each character
+
+each config will describe what animations and actions that the character can take
+
+characters:
+- dev
