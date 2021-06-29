@@ -7,5 +7,20 @@ map =   ..++ffff+++^^^
         ^fffffffffff..
         ^^+++++++++...
 population =    Alex
-                Billy
-                Madi
+                Caleb
+                ShadowFire
+
+[Alex]
+type = dev
+x = 3
+y = 1
+
+[Caleb]
+type = dev
+x = 5
+y = 3
+
+[ShadowFire]
+type = dev
+x = 12
+y = 2
