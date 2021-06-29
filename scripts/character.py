@@ -33,15 +33,16 @@ class Character(GameObject):
         the function to get the current sprite
         """
         rval = self.sprite
+        rate = 50
         self.frame += 1
         if self.animation:
-            if self.frame >= len(self.actions[self.animation]):
+            if self.frame//rate >= len(self.actions[self.animation]):
                 self.frame = 0
                 self.animation = 0
             else:
-                rval = self.actions[self.animation][self.frame]
+                rval = self.actions[self.animation][self.frame//rate]
         else:
-            if ('idle' in self.actions) and (self.frame == 30):
+            if ('idle' in self.actions) and (self.frame == 20*rate):
                 self.animate('idle')
         return rval
     
