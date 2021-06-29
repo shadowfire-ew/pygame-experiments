@@ -21,7 +21,7 @@ def main():
 
     # loading the level
     test_level = Level()
-    test_level.load_file("lab-hub.map")
+    test_level.load_file("dev.map")
     level_image, level_objects = test_level.render()
 
     while True:
