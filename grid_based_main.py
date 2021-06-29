@@ -21,6 +21,9 @@ def main():
     screen = pygame.display.set_mode(ly.size)
     pygame.display.set_caption("Grid-Based Game Test")
 
+    # Setting up the fps
+    FPS = 30
+    fpsClock = pygame.time.Clock()
 
     # loading the level
     test_level = Level()
@@ -57,6 +60,7 @@ def main():
             screen.blit(image,pos)
         # complete display
         pygame.display.flip()
+        fpsClock.tick(FPS)
 
     # returning a code
     return "good"
