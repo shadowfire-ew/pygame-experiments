@@ -2,3 +2,5 @@ This folder contains the sprites for the characters
 
 each character will have a single for their base, as well as 3x3 animation sheets
 
+characters:
+- dev (base)
