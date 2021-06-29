@@ -29,7 +29,7 @@ def load_tile_table(filename, width, height = None):
     """
 
     if height is None:
-        # in case a height is included
+        # in case a height is not included
         height = width
 
     image = pygame.image.load(location+'tilesets/'+filename).convert()
