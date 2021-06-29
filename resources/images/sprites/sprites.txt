@@ -2,5 +2,8 @@ this folder contains the sprite images
 
 it is subdivided into seperate folders:
 - characters
+    - npc's and the player are characters
 - environment
+    - things which show up in the map (ex. chests and doors)
 - items
+    - this one might not exist if i use procedural items
