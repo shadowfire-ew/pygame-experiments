@@ -5,9 +5,8 @@ Done:
 - tileset loader
 - map loading / display
 In Progress:
-- tbd tomorrow (probably the player / environment objects)
+- player character
 To Do: (in no particular order)
-- a player character
 - enemies
 - interractables
 - items and inventory
