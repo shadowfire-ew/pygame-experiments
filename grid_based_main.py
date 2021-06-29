@@ -13,8 +13,10 @@ def main():
     returns strings with statuses
     """
     pygame.init()
+
     # controll variable
     looping = True
+
     # setting up the screen
     screen = pygame.display.set_mode(ly.size)
     pygame.display.set_caption("Grid-Based Game Test")
