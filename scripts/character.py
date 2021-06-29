@@ -26,7 +26,7 @@ class Character(GameObject):
         for a in acts:
             anim_name = parser.get(a,'sheet')+'.png'
             self.actions[a]=li.load_animations(anim_name,ly.tilesize)
-        super.__init__(self,name,sprite,x,y,ly.tilesize)
+        GameObject.__init__(self,name,sprite,x,y,ly.tilesize)
     
     def draw(self):
         """
