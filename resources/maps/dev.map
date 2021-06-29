@@ -1,6 +1,8 @@
 [level]
 tileset = template
-map =   ..ff^^^
-        .ffff^^
-        ^++++..
-        ^^++...
+map =   ..++ffff+++^^^
+        .fffffffffff^^
+        +ffffffffffff^
+        +ffffffffffff.
+        ^fffffffffff..
+        ^^+++++++++...
