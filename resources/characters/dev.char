@@ -1,5 +1,5 @@
 [character]
-single = base
+single = base_single
 actions =   idle
             dialogue
 
