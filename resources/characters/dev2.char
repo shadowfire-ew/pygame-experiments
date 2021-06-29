@@ -1,4 +1,11 @@
 [character]
 single = half_base
+size = 40
 actions =   idle
             move
+
+[idle]
+sheet = half_idle
+
+[move]
+sheet = half_idle
