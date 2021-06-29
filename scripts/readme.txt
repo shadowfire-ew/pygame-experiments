@@ -3,13 +3,15 @@ this folder contains all the mechanics used or to be implemented
                     Mechanics:
 Done:
 - tileset loader
-In Progress:
 - map loading / display
+In Progress:
+- tbd tomorrow (probably the player / environment objects)
 To Do: (in no particular order)
 - a player character
 - enemies
 - interractables
 - items and inventory
+- a map editor
 - random generation of dungeons
 - procedural generation of rooms
 - combination procedural and random generation
