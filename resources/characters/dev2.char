@@ -1,0 +1,4 @@
+[character]
+single = half_base
+actions =   idle
+            move
