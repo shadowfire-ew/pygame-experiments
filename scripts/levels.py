@@ -37,11 +37,13 @@ class Level:
             # and x goes from left to right
         except IndexError:
             print("error getting char")
+            # returns a dict to cause an error
             return {}
         try:
             return key[char]
         except KeyError:
             print("error getting key[char]")
+            # returns a dict to cause an error
             return {}
     
     def render(self):
