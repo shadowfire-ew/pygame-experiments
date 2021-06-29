@@ -24,4 +24,10 @@ class Character:
         acts = parser.get('character','actions').split('\n')
         for a in acts:
             anim_name = parser.get(a,'sheet')+'.png'
-            self.actions[a]=li.load_animations(anim_name,80)
+            self.actions[a]=li.load_animations(anim_name,80)        "returns the position in the map of this character"
+        return (self.x,self.y)
+    
+    def get_location(self):
+        "returns the location in the image of this character"
+        return (self.x*ly.tilesize,self.y*ly.tilesize)
+    
