@@ -15,8 +15,10 @@ class GameObject:
         return self.sprite
     
     def get_position(self):
+        "returns grid co-ords"
         return (self.x,self.y)
     
     def get_location(self):
+        "returns the true location in the image"
         tx = self.x*ly.tilesize + (ly.tilesize-self.width)
         ty = self.x*ly.tilesize + (ly.tilesize-self.height)
