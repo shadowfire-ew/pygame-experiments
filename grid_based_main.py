@@ -1,3 +1,4 @@
+from scripts.character import Character
 from scripts.levels import Level
 import scripts.layout as ly
 import pygame
@@ -22,6 +23,9 @@ def main():
     test_level = Level()
     test_level.load_file("dev.map")
     level_image, level_objects = test_level.render()
+
+    # loading a test character
+    test_char = Character('Chili','dev.char')
 
     while True:
         #main loop
