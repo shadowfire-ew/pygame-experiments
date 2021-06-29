@@ -1,5 +1,4 @@
 from scripts.levels import Level
-from scripts.load_tile_table import load_tile_table
 import scripts.layout as ly
 import pygame
 
