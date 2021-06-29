@@ -1,0 +1,10 @@
+[character]
+single = base
+actions =   idle
+            dialogue
+
+[idle]
+sheet = base_sheet
+
+[dialogue]
+sheet = base_sheet
