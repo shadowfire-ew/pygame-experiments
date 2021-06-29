@@ -1,10 +1,10 @@
 [character]
-single = base.png
+single = base
 actions =   idle
             dialogue
 
 [idle]
-sheet = base_sheet.png
+sheet = base_sheet
 
 [dialogue]
-sheet = base_sheet.png
+sheet = base_sheet
