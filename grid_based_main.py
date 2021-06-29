@@ -31,7 +31,7 @@ def main():
     level_image, level_objects = test_level.render()
 
     # loading a test character
-    test_char = Character('Chili','dev.char')
+    test_char = Character('Chili','dev2.char')
     level_objects.append(test_char)
 
     while True:
