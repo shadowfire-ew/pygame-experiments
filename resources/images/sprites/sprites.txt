@@ -1,0 +1,6 @@
+this folder contains the sprite images
+
+it is subdivided into seperate folders:
+- characters
+- environment
+- items
