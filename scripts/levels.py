@@ -12,7 +12,7 @@ key = {
     '^':"water"
 }
 
-class Level(object):
+class Level:
     def load_file(self, filename):
         self.map = []
         parser = ConfigParser()
