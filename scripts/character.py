@@ -42,7 +42,7 @@ class Character(GameObject):
         else:
             if ('idle' in self.actions) and (self.frame == 30):
                 self.animate('idle')
-            rval = self.sprite()
+            rval = self.sprite
         return rval
     
     
