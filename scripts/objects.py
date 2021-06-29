@@ -22,3 +22,4 @@ class GameObject:
         "returns the true location in the image"
         tx = self.x*ly.tilesize + (ly.tilesize-self.width)
         ty = self.x*ly.tilesize + (ly.tilesize-self.height)
+        return(tx,ty)
