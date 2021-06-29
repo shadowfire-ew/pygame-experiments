@@ -1,4 +1,4 @@
-import scripts.load_tile_table as lt
+import scripts.load_images as li
 import pygame
 from configparser import ConfigParser
 import scripts.layout as ly
@@ -58,8 +58,8 @@ class Level:
         starty = ly.gheight//2 - self.height//2
 
         # load the images
-        tiles = lt.load_tile_table(self.tileset+"-tiles.png", ly.tilesize)
-        borders = lt.load_tile_table(self.tileset+"-borders.png", ly.tilesize//2)
+        tiles = li.load_tile_table(self.tileset+"-tiles.png", ly.tilesize)
+        borders = li.load_tile_table(self.tileset+"-borders.png", ly.tilesize//2)
 
         # prepare the canvas
         image = pygame.Surface(ly.size)
@@ -73,7 +73,7 @@ class Level:
                 ny = y - starty
                 # the get_tile now handles when the nx and ny are out of range
                 label = self.get_tile(nx,ny)
-                tile = lt.base[label]
+                tile = li.base[label]
                 # getting the tile from the table
                 tile_image = tiles[tile][0]
                 # applying the image
