@@ -10,6 +10,7 @@ To Do: (in no particular order)
 - interractables
 - items and inventory
 - a map editor
+- dialogue boxes
 - random generation of dungeons
 - procedural generation of rooms
 - combination procedural and random generation
