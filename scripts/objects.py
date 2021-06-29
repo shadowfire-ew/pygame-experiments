@@ -8,6 +8,8 @@ class GameObject:
         self.x = x
         self.y= y
         self.width = width
+        if height is None:
+            height = width
         self.height = height
         self.sprite = sprite
     
