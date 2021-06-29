@@ -5,7 +5,6 @@ from configparser import ConfigParser
 from scripts.objects import GameObject
 import pygame
 import scripts.load_images as li
-import scripts.layout as ly
 
 character_config_folder = "resources/characters/"
 
@@ -20,13 +19,14 @@ class Character(GameObject):
         parser = ConfigParser()
         parser.read(character_config_folder+config)
         sprite_name = parser.get('character','single')
+        size = int(parser.get("character","size"))
         print('"'+sprite_name+'"')
         sprite = pygame.image.load(li.location+'sprites/characters/'+sprite_name+'.png')
         acts = parser.get('character','actions').split('\n')
         for a in acts:
             anim_name = parser.get(a,'sheet')+'.png'
-            self.actions[a]=li.load_animations(anim_name,ly.tilesize)
-        GameObject.__init__(self,name,sprite,x,y,ly.tilesize)
+            self.actions[a]=li.load_animations(anim_name,size)
+        GameObject.__init__(self,name,sprite,x,y,size)
     
     def draw(self):
         """
