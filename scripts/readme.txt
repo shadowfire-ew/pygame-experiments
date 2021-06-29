@@ -5,9 +5,8 @@ Done:
 - tileset loader
 - map loading / display
 In Progress:
-- player character
+- characters
 To Do: (in no particular order)
-- enemies
 - interractables
 - items and inventory
 - a map editor
