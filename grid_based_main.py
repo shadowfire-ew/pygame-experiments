@@ -26,6 +26,7 @@ def main():
 
     # loading a test character
     test_char = Character('Chili','dev.char')
+    level_objects.append(test_char)
 
     while True:
         #main loop
@@ -47,6 +48,10 @@ def main():
         screen.blit(level_image,(0,0))
         # the overlays
         # fore ground stuff
+        for obj in level_objects:
+            image = obj.draw()
+            pos = obj.get_location()
+            screen.blit(image,pos)
         # complete display
         pygame.display.flip()
 
