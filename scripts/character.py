@@ -12,7 +12,7 @@ class Character(GameObject):
     """
     the character object
     """
-    def __init__(self,name, config, x = 5, y = 5):
+    def __init__(self,name, config, x = 0, y = 0):
         self.animation = 0
         self.frame = 0
         self.actions = {}
