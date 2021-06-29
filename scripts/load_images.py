@@ -1,7 +1,8 @@
 import pygame
 from functools import lru_cache
 
-location = "resources/images/tilesets/"
+location = "resources/images/"
+
 
 base = {
     "hole":0,
@@ -31,7 +32,7 @@ def load_tile_table(filename, width, height = None):
         # in case a height is included
         height = width
 
-    image = pygame.image.load(location+filename).convert()
+    image = pygame.image.load(location+'tilesets/'+filename).convert()
     im_width, im_height = image.get_size()
     tile_table = []
     for tile_y in range(0, im_height//height):
