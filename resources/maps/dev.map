@@ -19,8 +19,3 @@ y = 1
 type = dev
 x = 5
 y = 3
-
-[ShadowFire]
-type = dev
-x = 12
-y = 2
