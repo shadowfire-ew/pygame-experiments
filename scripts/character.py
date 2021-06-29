@@ -11,8 +11,10 @@ class Character:
     """
     the character object
     """
-    def __init__(self,name, config):
+    def __init__(self,name, config, x = 5, y = 5):
         self.name = name
+        self.x = x
+        self.y = y
         self.actions = {}
         parser = ConfigParser()
         parser.read(character_config_folder+config)
