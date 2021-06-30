@@ -1,6 +1,6 @@
 from scripts.character import Character
 from scripts.levels import Level
-import scripts.layout as ly
+import scripts.manifest as mf
 import pygame
 
 bg = 115,0,115
@@ -18,7 +18,7 @@ def main():
     looping = True
 
     # setting up the screen
-    screen = pygame.display.set_mode(ly.size)
+    screen = pygame.display.set_mode(mf.size)
     pygame.display.set_caption("Grid-Based Game Test")
 
     # Setting up the fps

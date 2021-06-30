@@ -2,7 +2,7 @@ from scripts.character import Character
 import scripts.load_images as li
 import pygame
 from configparser import ConfigParser
-import scripts.layout as ly
+import scripts.manifest as mf
 
 maps_folder="resources/maps/"
 #decided on shared tile types, because this is just an experiment
@@ -62,19 +62,19 @@ class Level:
         width, is the grid width, height is the grid height
         """
         # find a way to center the level in the image
-        startx = ly.gwidth//2 - self.width//2
-        starty = ly.gheight//2 - self.height//2
+        startx = mf.gwidth//2 - self.width//2
+        starty = mf.gheight//2 - self.height//2
 
         # load the images
-        tiles = li.load_tile_table(self.tileset+"-tiles.png", ly.tilesize)
-        borders = li.load_tile_table(self.tileset+"-borders.png", ly.tilesize//2)
+        tiles = li.load_tile_table(self.tileset+"-tiles.png", mf.tilesize)
+        borders = li.load_tile_table(self.tileset+"-borders.png", mf.tilesize//2)
 
         # prepare the canvas
-        image = pygame.Surface(ly.size)
+        image = pygame.Surface(mf.size)
 
         # filling the canvas
-        for x in range(ly.gwidth):
-            for y in range(ly.gheight):
+        for x in range(mf.gwidth):
+            for y in range(mf.gheight):
                 # the background tiles
                 tile=-1
                 nx = x - startx
@@ -85,7 +85,7 @@ class Level:
                 # getting the tile from the table
                 tile_image = tiles[tile][0]
                 # applying the image
-                image.blit(tile_image,(x*ly.tilesize,y*ly.tilesize))
+                image.blit(tile_image,(x*mf.tilesize,y*mf.tilesize))
                 # now for the overlays
                 if (-1<=nx<=self.width) and (-1<=ny<=self.height):
                     # only need to worry about the tiles in and directly around the map
@@ -131,7 +131,7 @@ class Level:
                                 # our x and y for the border image
                                 bx = x + LRa/2
                                 by = y + TBa/2
-                                image.blit(border_image,(bx*ly.tilesize,by*ly.tilesize))
+                                image.blit(border_image,(bx*mf.tilesize,by*mf.tilesize))
         
         # preparing the objects
         objects = []
