@@ -1,3 +1,4 @@
+from scripts.character import Character
 import scripts.load_images as li
 import pygame
 from configparser import ConfigParser
@@ -22,6 +23,13 @@ class Level:
         self.map = parser.get("level","map").split('\n')
         self.width = len(self.map[0])
         self.height = len(self.map)
+        population = parser.get("level","population").split('\n')
+        self.objects = []
+        for individual in population:
+            itype = parser.get(individual,"type")
+            ix = int(parser.get(individual,"x"))
+            iy = int(parser.get(individual,"y"))
+            self.objects.append([individual,itype,ix,iy])
     
     def get_tile(self, x, y):
         char = '+'
