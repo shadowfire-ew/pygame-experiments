@@ -56,6 +56,7 @@ def main():
             screen.blit(image,pos)
         # complete display
         pygame.display.flip()
+        # ticking the clock to allow consistent framerate
         fpsClock.tick(FPS)
 
     # returning a code
