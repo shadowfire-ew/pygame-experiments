@@ -1,0 +1,4 @@
+this folder contains paths for npc's which may have movement paths
+some npc's might have multiple paths
+
+these will be saved by name as well
