@@ -1,0 +1,4 @@
+this folder contains configs for each npc and env object's inventory
+it will only have inventories for those which explicitly have inventories
+
+each inventory will be saved by name
