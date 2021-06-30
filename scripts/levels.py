@@ -73,6 +73,7 @@ class Level:
         image = pygame.Surface(ly.size)
         objects = []
 
+        # filling the canvas
         for x in range(ly.gwidth):
             for y in range(ly.gheight):
                 # the background tiles
