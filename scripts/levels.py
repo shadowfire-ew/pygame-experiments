@@ -71,7 +71,6 @@ class Level:
 
         # prepare the canvas
         image = pygame.Surface(ly.size)
-        objects = []
 
         # filling the canvas
         for x in range(ly.gwidth):
@@ -133,4 +132,7 @@ class Level:
                                 bx = x + LRa/2
                                 by = y + TBa/2
                                 image.blit(border_image,(bx*ly.tilesize,by*ly.tilesize))
+        
+        # preparing the objects
+        objects = []
         return image, objects
