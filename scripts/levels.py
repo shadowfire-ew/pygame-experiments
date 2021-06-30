@@ -1,7 +1,8 @@
+from pygame.sprite import OrderedUpdates
 from scripts.character import Character
 import scripts.load_images as li
 import pygame
-from configparser import ConfigParser
+from configparser import ConfigParser, Error
 import scripts.manifest as mf
 
 maps_folder="resources/maps/"
@@ -135,4 +136,15 @@ class Level:
         
         # preparing the objects
         objects = []
+        for object in self.objects:
+            name, type, x, y = object
+            if type in mf.character_types:
+                char = Character(name, type+".char", x+startx, y+starty)
+                objects.append(char)
+            elif type in mf.env_object_types:
+                # dont have env objects programmed yet
+                pass
+            else:
+                # because population should only be env objects and characters
+                raise Error
         return image, objects
