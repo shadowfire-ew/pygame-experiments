@@ -8,6 +8,13 @@ import scripts.load_images as li
 
 character_config_folder = "resources/characters/"
 
+directions = {
+    'up':0,
+    'left':1,
+    'down':2,
+    'right':3
+}
+
 class Character(GameObject):
     """
     the character object
@@ -16,7 +23,8 @@ class Character(GameObject):
         # some internal controll vairables
         self.animation = 0
         self.frame = 0
-        self.move = 0
+        self.moving = 0
+        self.direction = 0
         # loading the config for the character type
         parser = ConfigParser()
         parser.read(character_config_folder+config)
@@ -63,7 +71,7 @@ class Character(GameObject):
             if ('idle' in self.actions) and (self.frame == 20*rate):
                 # we attempt to go idle
                 self.animate('idle')
-        return rval
+        return pygame.transform.rotate(rval,90*self.direction)
     
     
     def animate(self, action):
@@ -74,3 +82,21 @@ class Character(GameObject):
         if action in self.actions and (not self.animation or self.animation=='idle'):
             self.animation = action
             self.frame = -1
+    
+    def turn(self, direction):
+        """
+        this function handles rotating
+        """
+        if type(direction) is str:
+            direction = directions[direction]
+        
+        if type(direction) is int:
+            self.direction = direction%4
+        else:
+            self.direction = 0
+
+    def move(self, direction):
+        """
+        this function will be used to prepare for moving in a specific direction
+        """
+        self.turn(direction)
