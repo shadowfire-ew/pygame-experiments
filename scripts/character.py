@@ -81,6 +81,10 @@ class Character(GameObject):
     
     
     def animate(self, action):
+        """
+        this function sets the current state
+        does not override any state beside idle
+        """
         # there are 3 things checked:
         # that this character can do the intended animation
         # that they are not currently in an animation
