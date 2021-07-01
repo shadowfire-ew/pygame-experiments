@@ -44,9 +44,10 @@ def main():
         if not looping: break
         # do stuff
 
-        i += 1
-        if (i >= 50):
-            level_objects[1].turn(i//5)
+        i += 4
+        if (i >= 400):
+            level_objects[1].turn(i)
+            i -=399
 
         # update display
         # clear background
