@@ -4,3 +4,7 @@ some npc's might have multiple paths
 these will be saved by name as well
 if  a character.char file specifies a move action, but no path is defined for the named instance, it will simply not move
 likewise, defining a path for a character that cannot move will be pointless
+
+each path is defined as a series of actions
+there are movement actions, where the number is how many tiles are moved
+and there is wait, where the number is how many seconds
