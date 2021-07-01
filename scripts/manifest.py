@@ -9,3 +9,5 @@ size = width,height = (gwidth*tilesize),(gheight*tilesize)
 character_types = ["dev","dev2"]
 item_types = []
 env_object_types = []
+
+framerate = 30
