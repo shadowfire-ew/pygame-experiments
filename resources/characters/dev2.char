@@ -8,4 +8,4 @@ actions =   idle
 sheet = half_idle
 
 [move]
-sheet = half_idle
+sheet = half_move
