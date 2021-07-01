@@ -1,5 +1,10 @@
-[path]
-cycle = right,1
+[main]
+paths = circle
+        mozy
+
+
+[circle]
+path =  right,1
         up,1
         left,2
         down,2
@@ -7,3 +12,16 @@ cycle = right,1
         up,1
         left,1
         wait,3
+
+[mozy]
+path =  left,1
+        up,1
+        wait,2
+        reverse,2
+        right,4
+        down,1
+        right,1
+        up,3
+        left,6
+        wait,5
+        reverse,8
