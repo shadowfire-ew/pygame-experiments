@@ -6,5 +6,7 @@ if  a character.char file specifies a move action, but no path is defined for th
 likewise, defining a path for a character that cannot move will be pointless
 
 each path is defined as a series of actions
-there are movement actions, where the number is how many tiles are moved
-and there is wait, where the number is how many seconds
+- movement directions: where the number is how many tiles are moved
+- wait: where the number is how many seconds
+- reverse: goes bakward through the specified number of actions
+    (ignores other reverses)
