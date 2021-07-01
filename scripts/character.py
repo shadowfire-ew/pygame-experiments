@@ -67,6 +67,10 @@ class Character(GameObject):
     
     
     def animate(self, action):
-        if action in self.actions and not self.animation:
+        # there are 3 things checked:
+        # that this character can do the intended animation
+        # that they are not currently in an animation
+        # and if they are, that they are currently in idle, which i want to be interruptable
+        if action in self.actions and (not self.animation or self.animation=='idle'):
             self.animation = action
             self.frame = -1
