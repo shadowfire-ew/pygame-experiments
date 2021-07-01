@@ -5,6 +5,7 @@ from configparser import ConfigParser
 from scripts.objects import GameObject
 import pygame
 import scripts.load_images as li
+import random
 
 character_config_folder = "resources/characters/"
 
@@ -59,9 +60,14 @@ class Character(GameObject):
             if self.frame//rate >= len(self.actions[self.animation]):
                 # resetting the internal frame counter
                 self.frame = 0
-                # resetting our current animation
-                # to be removed when improving idle
-                self.animation = 0
+                # changing direction randomly when idle
+                # putting this here to make it less frequent
+                if self.animation == 'idle':
+                    # i want this to favor staying in the same direction while idle
+                    a = random.randint(0,7)
+                    if a >= 4:
+                        a = self.direction
+                    self.direction = a
             else:
                 # otherwise, intend to return the current frame
                 rval = self.actions[self.animation][self.frame//rate]
