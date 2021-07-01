@@ -12,3 +12,6 @@ each path is defined as a series of actions
     (ignores waits and other reverses)
 
 when a path is completed, the character will return to it's origin
+I will try for shortest path
+no pathfinding yet, but i will need it once i put some walls for collision
+once i get pathfinding, paths will be redefined into a series of co-ordinates
