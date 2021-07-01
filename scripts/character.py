@@ -52,7 +52,7 @@ class Character(GameObject):
         # a base return value
         rval = self.sprite
         # the rate at which frames change relative to the overall framerate
-        rate = 2
+        rate = 3
         # moving up our internal frame counter
         self.frame += 1
         if self.animation:
