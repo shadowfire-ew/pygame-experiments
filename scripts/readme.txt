@@ -4,8 +4,9 @@ this folder contains all the mechanics used or to be implemented
 Done:
 - tileset loader
 - map loading / display
+- character loading / display
 In Progress:
-- characters
+- character movement
 To Do: (in no particular order)
 - interractables
 - items and inventory
