@@ -29,6 +29,8 @@ def main():
     test_level.load_file("dev.map")
     level_image, level_objects = test_level.render()
 
+    i = 0
+
     while True:
         #main loop
         
@@ -41,6 +43,10 @@ def main():
         # actually exiting
         if not looping: break
         # do stuff
+
+        i += 1
+        if (i >= 50):
+            level_objects[1].turn(i//5)
 
         # update display
         # clear background
