@@ -2,3 +2,5 @@ this folder contains paths for npc's which may have movement paths
 some npc's might have multiple paths
 
 these will be saved by name as well
+if  a character.char file specifies a move action, but no path is defined for the named instance, it will simply not move
+likewise, defining a path for a character that cannot move will be pointless
