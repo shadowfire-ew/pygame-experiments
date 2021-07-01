@@ -9,4 +9,4 @@ each path is defined as a series of actions
 - movement directions: where the number is how many tiles are moved
 - wait: where the number is how many seconds
 - reverse: goes bakward through the specified number of actions, taking the opposite direction
-    (ignores other reverses)
+    (ignores waits and other reverses)
