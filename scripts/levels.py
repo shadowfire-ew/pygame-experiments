@@ -138,9 +138,9 @@ class Level:
         # preparing the objects
         objects = []
         for object in self.objects:
-            name, type, x, y = object
+            name, type, ix, iy = object
             if type in mf.character_types:
-                char = Character(name, type+".char", x+startx, y+starty)
+                char = Character(name, type+".char", ix+self.startx, iy+self.starty)
                 objects.append(char)
             elif type in mf.env_object_types:
                 # dont have env objects programmed yet
