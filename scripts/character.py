@@ -110,4 +110,32 @@ class Character(GameObject):
         """
         this function will be used to prepare for moving in a specific direction
         """
-        self.turn(direction)
+        if 'move' in self.actions and not self.animation == 'move':
+            self.turn(direction)
+            self.moving = mf.tilesize//(self.speed*mf.framerate)
+            self.animate('move')
+    
+    def __done_moving(self):
+        self.x += (self.direction-2)*(self.direction%2)
+        self.y += (self.direction-1)*((self.direction+1)%2)
+        self.offx = 0
+        self.moving = 0
+        self.offy = 0
+        self.animation = 0
+        self.frame = 0
+
+    def __update_pos(self):
+        """
+        a helper function to help update offsets
+        """
+        if self.moving:
+            if abs(self.offx) >= mf.tilesize or abs(self.offy) >= mf.tilesize:
+                self.__done_moving()
+            else:
+                # this wonky equation means that x is only influenced when direction is left or right (1,3)
+                # and that y is only influenced when direction is up or down (0,2)
+                # and that it up and left will subtract from y and x respectively
+                # and vice versa
+                # also used in the done moving function
+                self.offx += self.moving*(self.direction-2)*(self.direction%2)
+                self.offy += self.moving*(self.direction-1)*((self.direction+1)%2)
