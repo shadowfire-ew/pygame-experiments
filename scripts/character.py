@@ -116,8 +116,14 @@ class Character(GameObject):
         """
         if 'move' in self.actions and not self.animation == 'move':
             self.turn(direction)
-            self.moving = int(mf.tilesize//(self.speed*mf.framerate))
-            self.animate('move')
+            adjust_x = self.x - mf.level.startx
+            adjust_y = self.y - mf.level.starty
+            check_x = adjust_x + (self.direction-2)*(self.direction%2)
+            check_y = adjust_y + (self.direction-1)*((self.direction+1)%2)
+            if mf.level.get_tile(check_x,check_y) == 'floor':
+                # need to check that the tile is movable to
+                self.moving = int(mf.tilesize//(self.speed*mf.framerate))
+                self.animate('move')
     
     def __done_moving(self):
         self.x += (self.direction-2)*(self.direction%2)
