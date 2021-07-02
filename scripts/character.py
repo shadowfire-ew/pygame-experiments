@@ -117,7 +117,7 @@ class Character(GameObject):
         """
         if 'move' in self.actions and not self.animation == 'move':
             self.turn(direction)
-            self.moving = mf.tilesize//(self.speed*mf.framerate)
+            self.moving = int(mf.tilesize//(self.speed*mf.framerate))
             self.animate('move')
     
     def __done_moving(self):
