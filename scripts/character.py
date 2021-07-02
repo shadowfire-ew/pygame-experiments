@@ -105,7 +105,6 @@ class Character(GameObject):
         """
         if type(direction) is str:
             direction = directions[direction]
-        
         if type(direction) is int:
             self.direction = direction%4
         else:
