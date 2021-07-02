@@ -68,6 +68,7 @@ class Character(GameObject):
                 # changing direction randomly when idle
                 # putting this here to make it less frequent
                 if self.animation == 'idle' and 'move' in self.actions:
+                    # only rotates when they character can move
                     # i want this to favor staying in the same direction while idle
                     a = random.randint(0,7)
                     if a >= 4:
