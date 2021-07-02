@@ -5,6 +5,7 @@ from configparser import ConfigParser
 from scripts.objects import GameObject
 import pygame
 import scripts.load_images as li
+import scripts.manifest as mf
 import random
 
 character_config_folder = "resources/characters/"
@@ -139,3 +140,4 @@ class Character(GameObject):
                 # also used in the done moving function
                 self.offx += self.moving*(self.direction-2)*(self.direction%2)
                 self.offy += self.moving*(self.direction-1)*((self.direction+1)%2)
+        
