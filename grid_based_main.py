@@ -29,21 +29,27 @@ def main():
     test_level.load_file("dev.map")
     level_image, level_objects = test_level.render()
 
-    i = 0
-
     while True:
         #main loop
         
         for event in pygame.event.get():
             # checking the event queue
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    level_objects[1].move('left')
+                elif event.key == pygame.K_RIGHT:
+                    level_objects[1].move('right')
+                elif event.key == pygame.K_UP:
+                    level_objects[1].move('up')
+                elif event.key == pygame.K_DOWN:
+                    level_objects[1].move('down')
 
             # checking if we have our exit event
             looping = (event.type != pygame.QUIT)
 
         # actually exiting
         if not looping: break
-        # do stuff
-
+        
         # update display
         # clear background
         screen.fill(bg)
