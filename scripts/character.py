@@ -26,6 +26,7 @@ class Character(GameObject):
         self.frame = 0
         self.moving = 0
         self.direction = 0
+        self.speed = 0.5
         # loading the config for the character type
         parser = ConfigParser()
         parser.read(character_config_folder+config)
