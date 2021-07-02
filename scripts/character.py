@@ -50,6 +50,7 @@ class Character(GameObject):
     def draw(self):
         """
         the function to get the current sprite
+        is also the function which updates all frame-based functions
         """
         # a base return value
         rval = self.sprite
@@ -57,6 +58,8 @@ class Character(GameObject):
         rate = 3
         # moving up our internal frame counter
         self.frame += 1
+        # doing our movement update
+        self.__update_pos()
         if self.animation:
             # if we are in an animation
             if self.frame//rate >= len(self.actions[self.animation]):
