@@ -31,6 +31,9 @@ class Level:
             ix = int(parser.get(individual,"x"))
             iy = int(parser.get(individual,"y"))
             self.objects.append([individual,itype,ix,iy])
+        # find a way to center the level in the image
+        self.startx = mf.gwidth//2 - self.width//2
+        self.starty = mf.gheight//2 - self.height//2
     
     def get_tile(self, x, y):
         char = '+'
@@ -62,9 +65,7 @@ class Level:
 
         width, is the grid width, height is the grid height
         """
-        # find a way to center the level in the image
-        startx = mf.gwidth//2 - self.width//2
-        starty = mf.gheight//2 - self.height//2
+        
 
         # load the images
         tiles = li.load_tile_table(self.tileset+"-tiles.png", mf.tilesize)
@@ -78,8 +79,8 @@ class Level:
             for y in range(mf.gheight):
                 # the background tiles
                 tile=-1
-                nx = x - startx
-                ny = y - starty
+                nx = x - self.startx
+                ny = y - self.starty
                 # the get_tile now handles when the nx and ny are out of range
                 label = self.get_tile(nx,ny)
                 tile = li.base[label]
