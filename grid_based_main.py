@@ -1,5 +1,3 @@
-from scripts.character import Character
-from scripts.levels import Level
 import scripts.manifest as mf
 import pygame
 
@@ -25,7 +23,7 @@ def main():
     fpsClock = pygame.time.Clock()
 
     # loading the level
-    test_level = Level()
+    test_level = mf.level
     test_level.load_file("dev.map")
     level_image, level_objects = test_level.render()
 
