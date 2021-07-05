@@ -63,6 +63,8 @@ class Character(GameObject):
         self.walk_timer = 0
         self.current_path = None
         self.next_path = None
+        self.wait_timer = 0
+        self.wait_ammount = 0
         # the home x and home y are the relative offset of the home square (i.e. distance from character)
         self.home_x = 0
         self.home_y = 0
@@ -197,6 +199,27 @@ class Character(GameObject):
         if path in self.paths or path is None:
             self.next_path = path
             self.walk_timer = 0
+
+    def wait(self, time):
+        """
+        makes the character stop moving for the specified time
+        time must be seconds
+        """
+        self.wait_timer = 0
+        self.wait_ammount = time*mf.framerate
+    
+    def __waiting(self):
+        """
+        does checking on the wait timer
+        """
+        if self.wait_ammount:
+            self.wait_timer += 1
+            if self.wait_timer >= self.wait_ammount:
+                self.wait_timer = 0
+                self.wait_ammount = 0
+            return True
+        else:
+            return False
     
     def __walk(self):
         """
