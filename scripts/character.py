@@ -1,7 +1,7 @@
 """
 this file sill describe the general character class
 """
-from configparser import ConfigParser
+from configparser import ConfigParser, NoSectionError
 from scripts.objects import GameObject
 import pygame
 import scripts.load_images as li
@@ -46,6 +46,28 @@ class Character(GameObject):
             self.actions[a]=li.load_animations(anim_name,size)
         # instancing our superclass game object
         GameObject.__init__(self,name,sprite,x,y,size)
+        # getting the character's path
+        # prep the variables used in paths
+        self.paths = {}
+        self.walk = 0
+        self.next_path = None
+        # only open this 
+        if 'move' in self.actions:
+            # want to try opening the path
+            parser.read("resources/paths/"+self.name+".pth")
+            try:
+                path_names = parser.get('main','paths').split('\n')
+                for path_n in path_names:
+                    path = []
+                    path_strings = parser.get(path_n,'path').split('\n')
+                    for walk in path_strings:
+                        act,num = walk.split(',')
+                        num = int(num)
+                        path+=[act]*num
+                    self.paths[path_n] = path
+            except NoSectionError:
+                print("no paths found for this object: "+self.name)
+            
     
     def draw(self):
         """
