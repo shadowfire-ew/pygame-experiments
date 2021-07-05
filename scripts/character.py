@@ -61,6 +61,9 @@ class Character(GameObject):
         self.walk_timer = 0
         self.current_path = None
         self.next_path = None
+        # the home x and home y are the relative offset of the home square
+        self.home_x = 0
+        self.home_y = 0
         # only open this 
         if 'move' in self.actions:
             # want to try opening the path
@@ -161,7 +164,9 @@ class Character(GameObject):
     def __done_moving(self):
         c_x , c_y = direction_to_change(self.direction)
         self.x += c_x
+        self.home_x -= c_x
         self.y += c_y
+        self.home_y -= c_y
         self.offx = 0
         self.moving = 0
         self.offy = 0
@@ -193,7 +198,24 @@ class Character(GameObject):
         this function is what controlls how the chracter moves
         it needs to be called every loop (and thus, in the draw function)
         """
-        if self.current_path in self.paths:
-            pass
-        elif self.current_path == 'return':
-            pass
+        if not self.moving:
+            # don't want to do any of these checks when moving
+            if self.current_path in self.paths:
+                pass
+            elif self.current_path == 'return':
+                # will just go back to home based on x and y difference
+                if self.home_x != 0:
+                    if self.home_x <0:
+                        # when home is to the left
+                        self.move('left')
+                    else:
+                        # when home is to the right
+                        self.move('right')
+                elif self.home_y != 0:
+                    if self.home_y < 0:
+                        self.move('up')
+                    else:
+                        self.move('down')
+                else:
+                    self.current_path = self.next_path
+                    self.next_path = None
