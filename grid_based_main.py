@@ -45,6 +45,10 @@ def main():
                     print(level_objects[1].get_paths())
                 elif event.key == pygame.K_h:
                     level_objects[1].set_next_path(None)
+                elif event.key == pygame.K_c:
+                    level_objects[1].set_next_path('circle')
+                elif event.key == pygame.K_m:
+                    level_objects[1].set_next_path('mozy')
 
             # checking if we have our exit event
             looping = (event.type != pygame.QUIT)
