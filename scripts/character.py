@@ -195,7 +195,8 @@ class Character(GameObject):
     def set_next_path(self, path):
         self.current_path = 'return'
         if path in self.paths or path is None:
-            self.next_path = None
+            self.next_path = path
+            self.walk_timer = 0
     
     def __walk(self):
         """
