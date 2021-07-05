@@ -212,7 +212,7 @@ class Character(GameObject):
         """
         does checking on the wait timer
         """
-        if self.wait_ammount:
+        if self.wait_ammount > 0:
             self.wait_timer += 1
             if self.wait_timer >= self.wait_ammount:
                 self.wait_timer = 0
