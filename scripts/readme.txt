@@ -5,8 +5,9 @@ Done:
 - tileset loader
 - map loading / display
 - character loading / display
-In Progress:
 - character movement
+In Progress:
+- character paths
 To Do: (in no particular order)
 - interractables
 - items and inventory
