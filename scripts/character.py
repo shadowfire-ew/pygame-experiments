@@ -95,6 +95,8 @@ class Character(GameObject):
         self.frame += 1
         # doing our movement update
         self.__update_pos()
+        # checking our path
+        self.__walk()
         if self.animation:
             # if we are in an animation
             if self.frame//rate >= len(self.actions[self.animation]):
