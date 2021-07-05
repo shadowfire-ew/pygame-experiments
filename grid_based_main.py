@@ -34,15 +34,17 @@ def main():
             # checking the event queue
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    pass
+                    level_objects[1].move('left')
                 elif event.key == pygame.K_RIGHT:
-                    pass
+                    level_objects[1].move('right')
                 elif event.key == pygame.K_UP:
-                    pass
+                    level_objects[1].move('up')
                 elif event.key == pygame.K_DOWN:
-                    pass
+                    level_objects[1].move('down')
                 elif event.key == pygame.K_p:
                     print(level_objects[1].get_paths())
+                elif event.key == pygame.K_h:
+                    level_objects[1].set_next_path(None)
 
             # checking if we have our exit event
             looping = (event.type != pygame.QUIT)
