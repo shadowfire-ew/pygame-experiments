@@ -17,6 +17,15 @@ directions = {
     'right':3
 }
 
+def direction_to_change(direction):
+    """
+    this wonky equation means that x is only influenced when direction is left or right (1,3)
+    and that y is only influenced when direction is up or down (0,2)
+    such that up and left will subtract from y and x respectively
+    and vice versa
+    """
+    return (direction-2)*(direction%2), (direction-1)*((direction+1)%2)
+
 class Character(GameObject):
     """
     the character object
@@ -141,16 +150,18 @@ class Character(GameObject):
             self.turn(direction)
             adjust_x = self.x - mf.level.startx
             adjust_y = self.y - mf.level.starty
-            check_x = adjust_x + (self.direction-2)*(self.direction%2)
-            check_y = adjust_y + (self.direction-1)*((self.direction+1)%2)
+            c_x , c_y = direction_to_change(self.direction)
+            check_x = adjust_x + c_x
+            check_y = adjust_y + c_y
             if mf.level.get_tile(check_x,check_y) == 'floor':
                 # need to check that the tile is movable to
                 self.moving = int(mf.tilesize//(self.speed*mf.framerate))
                 self.animate('move')
     
     def __done_moving(self):
-        self.x += (self.direction-2)*(self.direction%2)
-        self.y += (self.direction-1)*((self.direction+1)%2)
+        c_x , c_y = direction_to_change(self.direction)
+        self.x += c_x
+        self.y += c_y
         self.offx = 0
         self.moving = 0
         self.offy = 0
@@ -165,13 +176,9 @@ class Character(GameObject):
             if abs(self.offx) >= mf.tilesize or abs(self.offy) >= mf.tilesize:
                 self.__done_moving()
             else:
-                # this wonky equation means that x is only influenced when direction is left or right (1,3)
-                # and that y is only influenced when direction is up or down (0,2)
-                # and that it up and left will subtract from y and x respectively
-                # and vice versa
-                # also used in the done moving function
-                self.offx += self.moving*(self.direction-2)*(self.direction%2)
-                self.offy += self.moving*(self.direction-1)*((self.direction+1)%2)
+                c_x , c_y = direction_to_change(self.direction)
+                self.offx += self.moving*c_x
+                self.offy += self.moving*c_y
     
     def get_paths(self):
         return self.paths.keys()
