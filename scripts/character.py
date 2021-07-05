@@ -171,4 +171,7 @@ class Character(GameObject):
                 # also used in the done moving function
                 self.offx += self.moving*(self.direction-2)*(self.direction%2)
                 self.offy += self.moving*(self.direction-1)*((self.direction+1)%2)
+    
+    def get_paths(self):
+        return self.paths.keys()
         
