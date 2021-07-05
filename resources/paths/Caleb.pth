@@ -17,11 +17,9 @@ path =  right,1
 path =  left,1
         up,1
         wait,2
-        reverse,2
         right,4
         down,1
         right,1
         up,3
         left,6
         wait,5
-        reverse,8
