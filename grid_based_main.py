@@ -41,6 +41,8 @@ def main():
                     pass
                 elif event.key == pygame.K_DOWN:
                     pass
+                elif event.key == pygame.K_p:
+                    print(level_objects[1].get_paths())
 
             # checking if we have our exit event
             looping = (event.type != pygame.QUIT)
