@@ -100,7 +100,7 @@ class Character(GameObject):
         # doing our movement update
         self.__update_pos()
         # checking our path and updating our waiting
-        if not self.__waiting(): self.__walk()
+        if not self.__do_waiting(): self.__walk()
         if self.animation:
             # if we are in an animation
             if self.frame//rate >= len(self.actions[self.animation]):
@@ -155,7 +155,7 @@ class Character(GameObject):
         """
         this function will be used to prepare for moving in a specific direction
         """
-        if 'move' in self.actions and not self.animation == 'move':
+        if 'move' in self.actions and not self.animation == 'move' and not self.__waiting():
             self.turn(direction)
             adjust_x = self.x - mf.level.startx
             adjust_y = self.y - mf.level.starty
@@ -213,7 +213,10 @@ class Character(GameObject):
         """
         does checking on the wait timer
         """
-        if self.wait_ammount > 0:
+        return self.wait_ammount > 0
+    
+    def __do_waiting(self):
+        if self.__waiting:
             self.wait_timer += 1
             if self.wait_timer >= self.wait_ammount:
                 self.wait_timer = 0
