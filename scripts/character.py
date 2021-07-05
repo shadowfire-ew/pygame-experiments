@@ -58,7 +58,7 @@ class Character(GameObject):
         # getting the character's path
         # prep the variables used in paths
         self.paths = {}
-        self.walk = 0
+        self.walk_timer = 0
         self.current_path = None
         self.next_path = None
         # only open this 
@@ -187,3 +187,13 @@ class Character(GameObject):
         self.current_path = 'return'
         if path in self.paths or path is None:
             self.next_path = None
+    
+    def __walk(self):
+        """
+        this function is what controlls how the chracter moves
+        it needs to be called every loop (and thus, in the draw function)
+        """
+        if self.current_path in self.paths:
+            pass
+        elif self.current_path == 'return':
+            pass
