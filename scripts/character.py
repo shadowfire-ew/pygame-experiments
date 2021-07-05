@@ -213,14 +213,13 @@ class Character(GameObject):
         """
         does checking on the wait timer
         """
-        return self.wait_ammount > 0
+        return 0 <= self.wait_timer < self.wait_ammount
     
     def __do_waiting(self):
-        if self.__waiting:
+        if self.__waiting():
             self.wait_timer += 1
-            if self.wait_timer >= self.wait_ammount:
-                self.wait_timer = 0
-                self.wait_ammount = 0
+            self.wait_timer = 0
+            self.wait_ammount = 0
             return True
         else:
             return False
