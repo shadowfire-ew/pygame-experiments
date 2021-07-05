@@ -99,8 +99,8 @@ class Character(GameObject):
         self.frame += 1
         # doing our movement update
         self.__update_pos()
-        # checking our path
-        self.__walk()
+        # checking our path and updating our waiting
+        if not self.__waiting(): self.__walk()
         if self.animation:
             # if we are in an animation
             if self.frame//rate >= len(self.actions[self.animation]):
@@ -229,7 +229,15 @@ class Character(GameObject):
         if not self.moving:
             # don't want to do any of these checks when moving
             if self.current_path in self.paths:
-                pass
+                if self.walk_timer < len(self.paths[self.current_path]):
+                    move = (self.paths[self.current_path][self.walk_timer])
+                    if move in directions:
+                        self.move(move)
+                    else:
+                        self.wait(1)
+                    self.walk_timer += 1
+                else:
+                    self.set_next_path(None)
             elif self.current_path == 'return':
                 # will just go back to home based on x and y difference
                 if self.home_x != 0:
