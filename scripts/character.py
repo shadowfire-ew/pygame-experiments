@@ -57,11 +57,13 @@ class Character(GameObject):
         GameObject.__init__(self,name,sprite,x,y,size)
         # getting the character's path
         # prep the variables used in paths
+        # our current paths
         self.paths = {}
+        # some controll variables
         self.walk_timer = 0
         self.current_path = None
         self.next_path = None
-        # the home x and home y are the relative offset of the home square
+        # the home x and home y are the relative offset of the home square (i.e. distance from character)
         self.home_x = 0
         self.home_y = 0
         # only open this 
