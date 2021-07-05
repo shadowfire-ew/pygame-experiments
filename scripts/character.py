@@ -199,6 +199,7 @@ class Character(GameObject):
         if path in self.paths or path is None:
             self.next_path = path
             self.walk_timer = 0
+            self.wait(0)
 
     def wait(self, time):
         """
