@@ -155,7 +155,7 @@ class Character(GameObject):
         """
         this function will be used to prepare for moving in a specific direction
         """
-        if 'move' in self.actions and not self.animation == 'move':
+        if 'move' in self.actions and not self.animation == 'move' and self.current_path is None:
             self.turn(direction)
             adjust_x = self.x - mf.level.startx
             adjust_y = self.y - mf.level.starty
