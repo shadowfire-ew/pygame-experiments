@@ -50,6 +50,7 @@ class Character(GameObject):
         # prep the variables used in paths
         self.paths = {}
         self.walk = 0
+        self.current_path = None
         self.next_path = None
         # only open this 
         if 'move' in self.actions:
@@ -174,4 +175,8 @@ class Character(GameObject):
     
     def get_paths(self):
         return self.paths.keys()
-        
+    
+    def set_next_path(self, path):
+        self.current_path = 'return'
+        if path in self.paths or path is None:
+            self.next_path = None
