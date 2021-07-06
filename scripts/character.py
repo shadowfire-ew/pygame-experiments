@@ -174,10 +174,7 @@ class Character(GameObject):
             c_x , c_y = direction_to_change(self.direction)
             check_x = self.x + c_x
             check_y = self.y + c_y
-            adjust_x = check_x - mf.level.startx
-            adjust_y = check_y - mf.level.starty
-            print(check_x,check_y,adjust_x,adjust_y)
-            if mf.level.get_tile(adjust_x,adjust_y) in modes[self.mode] and mf.check_chars_pos(check_x,check_y,self.name):
+            if self.can_enter(check_x,check_y):
                 # need to check that the tile is movable to
                 self.moving = int(mf.tilesize//(self.speed*mf.framerate))
                 self.animate('move')
@@ -223,6 +220,14 @@ class Character(GameObject):
         """
         self.wait_timer = 0
         self.wait_ammount = time*mf.framerate
+    
+    def can_enter(self, x, y):
+        """
+        checks if this character can enter a given square
+        """
+        adjust_x = x - mf.level.startx
+        adjust_y = y - mf.level.starty
+        return mf.level.get_tile(adjust_x,adjust_y) in modes[self.mode] and mf.check_chars_pos(x,y,self.name)
     
     def __waiting(self):
         """
