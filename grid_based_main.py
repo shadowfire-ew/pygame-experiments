@@ -30,7 +30,7 @@ def main():
     level_objects = mf.objects
 
     #initializing the player
-    mf.player = cr.Character("Player","player.char")
+    mf.player = cr.Character("Player","player.char", 10, 7)
     player = mf.player
 
     while True:
