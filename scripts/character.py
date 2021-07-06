@@ -171,12 +171,13 @@ class Character(GameObject):
         """
         if 'move' in self.actions and not self.animation == 'move' and not self.__waiting():
             self.turn(direction)
-            adjust_x = self.x - mf.level.startx
-            adjust_y = self.y - mf.level.starty
             c_x , c_y = direction_to_change(self.direction)
-            check_x = adjust_x + c_x
-            check_y = adjust_y + c_y
-            if mf.level.get_tile(check_x,check_y) in modes[self.mode] and mf.check_chars_pos(check_x,check_y,self.name):
+            check_x = self.x + c_x
+            check_y = self.y + c_y
+            adjust_x = check_x - mf.level.startx
+            adjust_y = check_y - mf.level.starty
+            print(check_x,check_y,adjust_x,adjust_y)
+            if mf.level.get_tile(adjust_x,adjust_y) in modes[self.mode] and mf.check_chars_pos(check_x,check_y,self.name):
                 # need to check that the tile is movable to
                 self.moving = int(mf.tilesize//(self.speed*mf.framerate))
                 self.animate('move')
