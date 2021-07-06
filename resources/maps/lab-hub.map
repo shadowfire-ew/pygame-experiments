@@ -1,5 +1,6 @@
 [level]
 tileset = lab
+population = none
 map =   ^^ff..ff^^
         ^^ff..ff^^
         f^ff.fff^f
