@@ -229,6 +229,21 @@ class Character(GameObject):
         adjust_y = y - mf.level.starty
         return mf.level.get_tile(adjust_x,adjust_y) in modes[self.mode] and mf.check_chars_pos(x,y,self.name)
     
+    def find_path(self, x, y):
+        """
+        trys to find a path pased on current world situation
+        """
+        if mf.check_chars_pos(self.x+self.home_x, self.y+self.home_y, self.name):
+            print(self.name+" home occupied")
+            return None
+        else:
+            # our starting point
+            point = [self.x,self.y]
+            # our starting difference from home
+            dif = [self.home_x,self.home_y]
+            while dif != 0:
+                pass
+
     def __waiting(self):
         """
         does checking on the wait timer
