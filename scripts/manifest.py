@@ -8,7 +8,7 @@ tilesize = 80
 grid = gwidth,gheight = 16,12
 size = width,height = (gwidth*tilesize),(gheight*tilesize)
 
-character_types = ["dev1","dev2"]
+character_types = ["dev1","dev2","player"]
 item_types = []
 env_object_types = []
 
@@ -17,3 +17,16 @@ framerate = 30
 level = Level()
 objects = None
 player = None
+def check_chars_pos(x,y,name):
+    # default return of true
+    rval = True
+    if name != "Player" and player.x == x and player.y == y:
+        # if the player is in the position
+        rval = False
+    else:
+        for char in objects:
+            # checking the other objects
+            if name != char.name and char.x == x and char.y == y:
+                # if the object isn't this object and is in the position
+                rval = False
+    return rval
