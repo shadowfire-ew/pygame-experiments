@@ -1,4 +1,3 @@
-from pygame.sprite import OrderedUpdates
 from scripts.character import Character
 import scripts.load_images as li
 import pygame
