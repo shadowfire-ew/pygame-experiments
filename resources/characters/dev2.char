@@ -1,11 +1,11 @@
 [character]
-single = half_base
-size = 40
+single = squito_copter
+size = 80
 actions =   idle
             move
 
 [idle]
-sheet = half_idle
+sheet = squito_copter_rotate
 
 [move]
-sheet = half_move
+sheet = squito_copter_rotate
