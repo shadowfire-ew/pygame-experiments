@@ -1,3 +1,4 @@
+import scripts.character as cr
 import scripts.manifest as mf
 import pygame
 
@@ -25,7 +26,12 @@ def main():
     # loading the level
     test_level = mf.level
     test_level.load_file("dev.map")
-    level_image, level_objects = test_level.render()
+    level_image, mf.objects = test_level.render()
+    level_objects = mf.objects
+
+    #initializing the player
+    mf.player = cr.Character("Player","player.char")
+    player = mf.player
 
     while True:
         #main loop
@@ -34,13 +40,13 @@ def main():
             # checking the event queue
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    level_objects[1].move('left')
+                    player.move('left')
                 elif event.key == pygame.K_RIGHT:
-                    level_objects[1].move('right')
+                    player.move('right')
                 elif event.key == pygame.K_UP:
-                    level_objects[1].move('up')
+                    player.move('up')
                 elif event.key == pygame.K_DOWN:
-                    level_objects[1].move('down')
+                    player.move('down')
                 elif event.key == pygame.K_p:
                     print(level_objects[1].get_paths())
                 elif event.key == pygame.K_h:
@@ -67,6 +73,10 @@ def main():
             image = obj.draw()
             pos = obj.get_location()
             screen.blit(image,pos)
+        # the player
+        image = player.draw()
+        pos = player.get_location()
+        screen.blit(image,pos)
         # complete display
         pygame.display.flip()
         # ticking the clock to allow consistent framerate
