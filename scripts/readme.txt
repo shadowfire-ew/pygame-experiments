@@ -9,7 +9,7 @@ Done:
 - character movement types
 - the player
 In Progress:
-- idk
+- pathfinding
 To Do: (in no particular order)
 - character paths
 - interractables
