@@ -1,0 +1,15 @@
+[character]
+single = player_sprite
+size = 60
+actions =   move
+            idle
+            hurt
+
+[move]
+sheet = player_sprite
+
+[idle]
+sheet = player_sprite
+
+[hurt]
+sheet = player_sprite
