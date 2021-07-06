@@ -23,9 +23,10 @@ class Level:
         self.map = parser.get("level","map").split('\n')
         self.width = len(self.map[0])
         self.height = len(self.map)
-        population = parser.get("level","population").split('\n')
+        population = parser.get("level","population")
         self.objects = []
         if population != "none":
+            population = population.split('\n')
             for individual in population:
                 itype = parser.get(individual,"type")
                 ix = int(parser.get(individual,"x"))
