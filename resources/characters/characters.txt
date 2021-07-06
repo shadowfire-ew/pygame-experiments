@@ -4,3 +4,5 @@ each config will describe what animations and actions that the character can tak
 
 characters:
 - dev
+- dev2
+- player
