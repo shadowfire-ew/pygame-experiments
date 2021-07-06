@@ -15,3 +15,5 @@ env_object_types = []
 framerate = 30
 
 level = Level()
+objects = None
+player = None
