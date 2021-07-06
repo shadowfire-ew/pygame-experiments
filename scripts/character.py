@@ -17,6 +17,15 @@ directions = {
     'right':3
 }
 
+modes = {
+    "stationary":[],
+    "walk":["floor"],
+    "swim":["water"],
+    "amphibous":["water","floor"],
+    "fly":["floor","hole","water"],
+    "ghost":["floor","hole","water","wall"]
+}
+
 def direction_to_change(direction):
     """
     this wonky equation means that x is only influenced when direction is left or right (1,3)
@@ -45,6 +54,8 @@ class Character(GameObject):
         # getting our idle wait timer
         # it is stored as seconds on the config
         self.idle_time = int(parser.get("character","idle"))*mf.framerate
+        # getting our movement mode
+        self.mode = parser.get("character","mode")
         # getting our base sprite name and savving our sprite image
         sprite_name = parser.get('character','single')
         sprite = pygame.image.load(li.location+'sprites/characters/'+sprite_name+'.png')
@@ -165,7 +176,7 @@ class Character(GameObject):
             c_x , c_y = direction_to_change(self.direction)
             check_x = adjust_x + c_x
             check_y = adjust_y + c_y
-            if mf.level.get_tile(check_x,check_y) == 'floor' and mf.check_chars_pos(check_x,check_y,self.name):
+            if mf.level.get_tile(check_x,check_y) in modes[self.mode] and mf.check_chars_pos(check_x,check_y,self.name):
                 # need to check that the tile is movable to
                 self.moving = int(mf.tilesize//(self.speed*mf.framerate))
                 self.animate('move')

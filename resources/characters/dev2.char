@@ -2,6 +2,7 @@
 single = squito_copter
 size = 80
 idle = 0
+mode = fly
 actions =   idle
             move
 

@@ -2,6 +2,7 @@
 single = base_single
 size = 80
 idle = 3
+mode = stationary
 actions =   idle
             dialogue
 
