@@ -7,8 +7,9 @@ Done:
 - character loading / display
 - character movement
 In Progress:
-- character paths
+- the player
 To Do: (in no particular order)
+- character paths
 - interractables
 - items and inventory
 - a map editor
