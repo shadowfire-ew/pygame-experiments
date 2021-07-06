@@ -1,6 +1,7 @@
 [character]
 single = squito_copter
 size = 80
+idle = 0
 actions =   idle
             move
 

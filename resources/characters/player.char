@@ -1,15 +1,16 @@
 [character]
-single = player_sprite
-size = 60
+single = half_base
+size = 40
+idle = 10
 actions =   move
             idle
             hurt
 
 [move]
-sheet = player_sprite
+sheet = half_move
 
 [idle]
-sheet = player_sprite
+sheet = half_idle
 
 [hurt]
-sheet = player_sprite
+sheet = half_move

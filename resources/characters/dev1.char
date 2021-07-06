@@ -1,6 +1,7 @@
 [character]
 single = base_single
 size = 80
+idle = 3
 actions =   idle
             dialogue
 
