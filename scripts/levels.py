@@ -25,11 +25,12 @@ class Level:
         self.height = len(self.map)
         population = parser.get("level","population").split('\n')
         self.objects = []
-        for individual in population:
-            itype = parser.get(individual,"type")
-            ix = int(parser.get(individual,"x"))
-            iy = int(parser.get(individual,"y"))
-            self.objects.append([individual,itype,ix,iy])
+        if population != "none":
+            for individual in population:
+                itype = parser.get(individual,"type")
+                ix = int(parser.get(individual,"x"))
+                iy = int(parser.get(individual,"y"))
+                self.objects.append([individual,itype,ix,iy])
         # find a way to center the level in the image
         self.startx = mf.gwidth//2 - self.width//2
         self.starty = mf.gheight//2 - self.height//2
