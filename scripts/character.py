@@ -162,7 +162,7 @@ class Character(GameObject):
             c_x , c_y = direction_to_change(self.direction)
             check_x = adjust_x + c_x
             check_y = adjust_y + c_y
-            if mf.level.get_tile(check_x,check_y) == 'floor':
+            if mf.level.get_tile(check_x,check_y) == 'floor' and mf.check_chars_pos(check_x,check_y,self.name):
                 # need to check that the tile is movable to
                 self.moving = int(mf.tilesize//(self.speed*mf.framerate))
                 self.animate('move')
