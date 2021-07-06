@@ -18,6 +18,7 @@ level = Level()
 objects = None
 player = None
 def check_chars_pos(x,y,name):
+    print(x,y)
     # default return of true
     rval = True
     if name != "Player" and player.x == x and player.y == y:
@@ -26,6 +27,8 @@ def check_chars_pos(x,y,name):
     else:
         for char in objects:
             # checking the other objects
+            print(char.name)
+            print(char.x,char.y)
             if name != char.name and char.x == x and char.y == y:
                 # if the object isn't this object and is in the position
                 rval = False
