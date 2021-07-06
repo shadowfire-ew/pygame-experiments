@@ -180,14 +180,23 @@ class Character(GameObject):
                 self.animate('move')
     
     def __done_moving(self):
+        """
+        a function to be called when the character reaches its desitnation
+        """
+        # get the adjustment ammount for our x and y
         c_x , c_y = direction_to_change(self.direction)
+        # adjusting our x and home offset x
         self.x += c_x
         self.home_x -= c_x
+        # adjusting our y and home offset y
         self.y += c_y
         self.home_y -= c_y
-        self.offx = 0
+        # we are no longer moving
         self.moving = 0
+        # our visual offset no longer needs to be anything
+        self.offx = 0
         self.offy = 0
+        # stop our animation
         self.animation = 0
         self.frame = 0
 
@@ -196,17 +205,25 @@ class Character(GameObject):
         a helper function to help update offsets
         """
         if self.moving:
+            # if we have any moving ammount
             if abs(self.offx) >= mf.tilesize or abs(self.offy) >= mf.tilesize:
+                # when we reach our destination
                 self.__done_moving()
             else:
+                # otherwise, just adjust our visual offset according to our direction
                 c_x , c_y = direction_to_change(self.direction)
                 self.offx += self.moving*c_x
                 self.offy += self.moving*c_y
     
     def get_paths(self):
+        "just returns the list of path names this character can take"
         return self.paths.keys()
     
     def set_next_path(self, path):
+        """
+        sets the next path for this character
+        the character will first attempt to go home before traversing the path
+        """
         self.current_path = 'return'
         if path in self.paths or path is None:
             self.next_path = path
@@ -225,6 +242,7 @@ class Character(GameObject):
         """
         checks if this character can enter a given square
         """
+        # adjusted co-ordinates for the level
         adjust_x = x - mf.level.startx
         adjust_y = y - mf.level.starty
         return mf.level.get_tile(adjust_x,adjust_y) in modes[self.mode] and mf.check_chars_pos(x,y,self.name)
@@ -251,35 +269,51 @@ class Character(GameObject):
         return 0 < self.wait_ammount
     
     def __do_waiting(self):
+        """""
+        does the waiting arithametic
+        returns true or false based on if the object is waiting at the time of checking
+        """
         if self.__waiting():
             self.wait_timer += 1
             if self.wait_timer >= self.wait_ammount:
-                self.wait_timer = 0
-                self.wait_ammount = 0
+                # when we pass the wait timer
+                # we set our waiting to 0
+                self.wait(0)
             return True
         else:
             return False
     
     def __walk(self):
         """
-        this function is what controlls how the chracter moves
+        this function is what controls how the chracter moves
         it needs to be called every loop (and thus, in the draw function)
+        will be reworked when pathfinding is implemented
         """
         if not self.moving:
             # don't want to do any of these checks when moving
+            # if we have this path
             if self.current_path in self.paths:
+                # if we haven't finished the path
                 if self.walk_timer < len(self.paths[self.current_path]):
-                    move = (self.paths[self.current_path][self.walk_timer])
-                    if move in directions:
-                        self.move(move)
+                    # get the next step
+                    step = (self.paths[self.current_path][self.walk_timer])
+                    # if the step is a movement
+                    if step in directions:
+                        self.move(step)
                     else:
+                        # otherwise, we just wait for a second
                         self.wait(1)
+                    # get ready for the next step
                     self.walk_timer += 1
                 else:
+                    # and when we have finished the path, we just go home and do nothing
                     self.set_next_path(None)
+            # when our path is to return. thus, we want to make return a reserved keyword, 
+            # and should probably throw an exception when parsing the paths
             elif self.current_path == 'return':
                 # will just go back to home based on x and y difference
                 if self.home_x != 0:
+                    # if we arent at the same x level as the home
                     if self.home_x <0:
                         # when home is to the left
                         self.move('left')
@@ -287,9 +321,12 @@ class Character(GameObject):
                         # when home is to the right
                         self.move('right')
                 elif self.home_y != 0:
+                    # if we aren't at the same y level as the home
                     if self.home_y < 0:
+                        # when home is above
                         self.move('up')
                     else:
+                        # when home is below
                         self.move('down')
                 else:
                     self.current_path = self.next_path
