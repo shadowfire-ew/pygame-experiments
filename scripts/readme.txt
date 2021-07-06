@@ -6,9 +6,10 @@ Done:
 - map loading / display
 - character loading / display
 - character movement
+- character movement types
 - the player
 In Progress:
-- character movement types
+- idk
 To Do: (in no particular order)
 - character paths
 - interractables
