@@ -6,7 +6,9 @@ from scripts.levels import Level
 
 tilesize = 80
 grid = gwidth,gheight = 16,12
-size = width,height = (gwidth*tilesize),(gheight*tilesize)
+invBarWidth = 3
+invBarMargin = 10
+size = width,height = (gwidth*tilesize)+(invBarWidth)+(invBarMargin*2),(gheight*tilesize)
 
 character_types = ["dev1","dev2","player"]
 item_types = []
