@@ -1,7 +1,7 @@
 import scripts.character as cr
 import scripts.load_images as li
 import pygame
-from configparser import ConfigParser, Error
+from configparser import ConfigParser
 import scripts.manifest as mf
 
 maps_folder="resources/maps/"
@@ -146,5 +146,5 @@ class Level:
                 pass
             else:
                 # because population should only be env objects and characters
-                raise Error
+                raise Exception
         return image, objects
