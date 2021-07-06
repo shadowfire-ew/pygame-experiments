@@ -1,4 +1,4 @@
-from scripts.character import Character
+import scripts.character as cr
 import scripts.load_images as li
 import pygame
 from configparser import ConfigParser, Error
@@ -139,7 +139,7 @@ class Level:
         for object in self.objects:
             name, type, ix, iy = object
             if type in mf.character_types:
-                char = Character(name, type+".char", ix+self.startx, iy+self.starty)
+                char = cr.Character(name, type+".char", ix+self.startx, iy+self.starty)
                 objects.append(char)
             elif type in mf.env_object_types:
                 # dont have env objects programmed yet
