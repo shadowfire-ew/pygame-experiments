@@ -42,6 +42,9 @@ class Character(GameObject):
         parser.read(character_config_folder+config)
         # getting our size (pixels)
         size = int(parser.get("character","size"))
+        # getting our idle wait timer
+        # it is stored as seconds on the config
+        self.idle_time = int(parser.get("character","idle"))*mf.framerate
         # getting our base sprite name and savving our sprite image
         sprite_name = parser.get('character','single')
         sprite = pygame.image.load(li.location+'sprites/characters/'+sprite_name+'.png')
@@ -121,7 +124,7 @@ class Character(GameObject):
         else:
             # when we arent in an animation
             # and we have an idle animatin and the idle timer is up
-            if ('idle' in self.actions) and (self.frame == 20*rate):
+            if ('idle' in self.actions) and (self.frame >= self.idle_time):
                 # we attempt to go idle
                 self.animate('idle')
         return pygame.transform.rotate(rval,90*self.direction)
