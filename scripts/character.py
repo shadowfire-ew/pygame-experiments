@@ -425,6 +425,7 @@ class Character(GameObject):
                     # if our path is blocked since we found the path
                     # recalculate the path
                     self.goto(self.destination)
+                    return False
                 self.path_timer += 1
                 return False
             else:
