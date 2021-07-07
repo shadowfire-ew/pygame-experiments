@@ -286,7 +286,11 @@ class Character(GameObject):
             # if we do not find the path, we will end up here
             return "cannot find path"
 
-    def neighbors(self,pos=None):
+    def neighbor_cells(self,pos=None):
+        """
+        a function which takes a postition and returns the traversable neighbors of it
+        if no position is provided, the character's position is used
+        """
         if pos is None:
             pos = (self.x,self.y)
         
