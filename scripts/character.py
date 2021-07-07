@@ -86,6 +86,7 @@ class Character(GameObject):
         self.wait_ammount = 0
         self.path_timer = 0
         self.destination = None
+        self.nogos = 0
         # the home x and home y are the home square
         self.home_x = self.x
         self.home_y = self.y
@@ -437,5 +438,16 @@ class Character(GameObject):
         if pos is None:
             pos = self.home
         self.destination = pos
-        self.path_to_walk = self.find_path(pos)
-        self.path_timer = 0
+        path = self.find_path(pos)
+        if path == "occupied" or path == "blocked":
+            # just wait a seccond to see if the path becomes unblocked
+            self.wait(1)
+            # also have an internal timer for if our path is blocked too many times
+            self.nogos +=1
+            if self.nogos >= 5:
+                # when that happens, we go home and do nothing
+                self.set_next_path(None)
+        else:
+            self.path_to_walk = path
+            self.path_timer = 0
+            self.nogos = 0
