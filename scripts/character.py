@@ -299,7 +299,7 @@ class Character(GameObject):
                         elif sy>ny:
                             walk.append('up')
                         pnode = cnode
-                    return nodes, walk
+                    return walk
                 
                 for next in self.neighbor_cells(node):
                     # using + 1 because I want to treat all cells as equal, for now
