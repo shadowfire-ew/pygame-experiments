@@ -1,9 +1,9 @@
 [level]
 tileset = template
-map =   ..++fff+++^^^
-        .ffffffffff^^
-        +fffffffffff^
-        +fffffffffff.
+map =   ..++f^f+++^^^
+        .ffff^fffff^^
+        +fff.f.fffff^
+        +ffff.ffffff.
         ^ffffffffff..
         ^^++++++++...
 population =    Alex
