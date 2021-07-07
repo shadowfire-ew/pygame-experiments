@@ -390,7 +390,12 @@ class Character(GameObject):
             # and should probably throw an exception when parsing the paths
             elif self.current_path == 'return':
                 # when we need to go home
-                self.goto()
+                if self.pos == self.home:
+                    self.current_path = self.next_path
+                    self.next_path = None
+                else:
+                    self.goto()
+
     def __follow_path(self):
         """
         this function will do all the checking for the pathfinding
