@@ -249,18 +249,16 @@ class Character(GameObject):
     
     def find_path(self, x, y):
         """
-        trys to find a path pased on current world situation
+        trys to find a path pased on current world situation to the destination
+        maybe going to try a modified verison of A*
         """
-        if mf.check_chars_pos(self.x+self.home_x, self.y+self.home_y, self.name):
-            print(self.name+" home occupied")
+        if self.can_enter(x,y):
+            print(self.name+" destination un-enterable")
             return None
         else:
-            # our starting point
-            point = [self.x,self.y]
-            # our starting difference from home
-            dif = [self.home_x,self.home_y]
-            while dif != 0:
-                pass
+            pass
+
+                
 
     def __waiting(self):
         """
