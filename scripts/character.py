@@ -67,7 +67,11 @@ class Character(GameObject):
         # populating the dict
         for a in acts:
             anim_name = parser.get(a,'sheet')+'.png'
-            self.actions[a]=li.load_animations(anim_name,size)
+            if a != "return":
+                # our reserved path name
+                self.actions[a]=li.load_animations(anim_name,size)
+            else:
+                raise Exception("'return' is a reserved path name")
         # instancing our superclass game object
         GameObject.__init__(self,name,sprite,x,y,size)
         # getting the character's path
