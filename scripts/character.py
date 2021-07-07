@@ -364,6 +364,7 @@ class Character(GameObject):
     def __walk(self):
         """
         this function is what controls how the chracter moves
+        it allows the character to wlak along it's designated path nodes
         it needs to be called every loop (and thus, in the draw function)
         """
         if not self.moving and self.__follow_path():
