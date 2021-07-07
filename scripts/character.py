@@ -408,3 +408,8 @@ class Character(GameObject):
                 else:
                     self.current_path = self.next_path
                     self.next_path = None
+    def goto(self,pos = None):
+        if pos is None:
+            pos = (self.home_x,self.home_y)
+        self.destination = pos
+        walk = self.find_path()
