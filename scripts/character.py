@@ -417,7 +417,7 @@ class Character(GameObject):
         if self.destination:
             # only want to check these if we have a destination to go to
             # when we are not done walking the path
-            if self.pos != self.destination:
+            if self.pos != self.destination and self.path_timer < len(self.path_to_walk):
                 # get the next desination
                 success = self.move(self.path_to_walk[self.path_timer])
                 if not success:
