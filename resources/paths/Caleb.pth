@@ -4,22 +4,15 @@ paths = circle
 
 
 [circle]
-path =  right,1
-        up,1
-        left,2
-        down,2
-        right,2
-        up,1
-        left,1
-        wait,3
+path =  3,4
+        3,7
+        12,7
+        12,4
 
 [mozy]
-path =  left,1
-        up,1
+path =  6,3
         wait,2
-        right,4
-        down,1
-        right,1
-        up,3
-        left,5
-        wait,5
+        13,3
+        8,3
+        wait, 5
+        3,4
