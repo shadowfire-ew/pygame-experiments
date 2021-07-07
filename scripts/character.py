@@ -85,6 +85,7 @@ class Character(GameObject):
         self.wait_timer = 0
         self.wait_ammount = 0
         self.path_timer = 0
+        self.destination = None
         # the home x and home y are the home square
         self.home_x = self.x
         self.home_y = self.y
