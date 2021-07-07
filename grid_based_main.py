@@ -57,6 +57,12 @@ def main():
                     level_objects[1].set_next_path('mozy')
                 elif event.key == pygame.K_e:
                     print(player.find_path(5,6))
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                mx,my = pygame.mouse.get_pos()
+                dx,dy = mx//80,my//80
+                if 0<=dx<mf.gwidth and 0<=dy<mf.gheight:
+                    print(player.find_path(dx,dy))
+                
 
             # checking if we have our exit event
             looping = (event.type != pygame.QUIT)
