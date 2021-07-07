@@ -148,5 +148,5 @@ class Level:
                 pass
             else:
                 # because population should only be env objects and characters
-                raise Exception
+                raise Exception("Population must be only env objects and characters")
         return image, objects
