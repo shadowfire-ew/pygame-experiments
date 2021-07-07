@@ -281,7 +281,8 @@ class Character(GameObject):
                 if node == end:
                     # do stuff to find relative path
                     # perhaps convert it into a string series of directions?
-                    return "path found, to be implemented"
+                    print("path found, to be implemented")
+                    return []
                 
                 for next in self.neighbor_cells(node):
                     # using + 1 because I want to treat all cells as equal, for now
