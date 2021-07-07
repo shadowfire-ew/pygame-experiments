@@ -281,10 +281,22 @@ class Character(GameObject):
                 if node == end:
                     # do stuff to find relative path
                     # perhaps convert it into a string series of directions?
-                    return
+                    return "path found, to be implemented"
+                
+                for next in self.neighbor_cells(node):
+                    # using + 1 because I want to treat all cells as equal, for now
+                    new_cost = costs[node] + 1
+                    if next not in costs or new_cost < costs[next]:
+                        costs[next] = new_cost
+                        # using taxicab distance as heuristic
+                        h = abs(end[0]-next[0])+abs(end[1]-next[1])
+                        priority = new_cost+h
+                        edge.put((priority,next))
+                        parents[next] = node
                 
             # if we do not find the path, we will end up here
-            return "cannot find path"
+            print("cannot find path for "+self.name+" to: "+str((x,y)))
+            return None
 
     def neighbor_cells(self,pos=None):
         """
