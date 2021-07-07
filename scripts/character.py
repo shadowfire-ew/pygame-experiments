@@ -181,6 +181,10 @@ class Character(GameObject):
                 # need to check that the tile is movable to
                 self.moving = int(mf.tilesize//(self.speed*mf.framerate))
                 self.animate('move')
+                # when this object can move
+                return True
+        # default return value, when the object cannot move
+        return False
     
     def __done_moving(self):
         """
