@@ -343,6 +343,11 @@ class Character(GameObject):
         this function is what controls how the chracter moves
         it needs to be called every loop (and thus, in the draw function)
         will be reworked when pathfinding is implemented
+        when pathfinding is implemented, the rework will feature:
+            set_destination function
+            some way to check if moving
+            only updating the walk when we have arrived at the destination
+            perhaps updating the path if we run into a character that was not there when the path was found initially
         """
         if not self.moving:
             # don't want to do any of these checks when moving
