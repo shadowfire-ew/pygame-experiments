@@ -365,16 +365,10 @@ class Character(GameObject):
         """
         this function is what controls how the chracter moves
         it needs to be called every loop (and thus, in the draw function)
-        will be reworked when pathfinding is implemented
-        when pathfinding is implemented, the rework will feature:
-            set_destination function
-            some way to check if moving
-            only updating the walk when we have arrived at the destination
-            perhaps updating the path if we run into a character that was not there when the path was found initially
         """
-        if not self.moving:
+        if not self.moving and self.__follow_path():
             # don't want to do any of these checks when moving
-            """
+            # nor when we are still on a path
             # if we have this path
             if self.current_path in self.paths:
                 # if we haven't finished the path
@@ -382,11 +376,11 @@ class Character(GameObject):
                     # get the next step
                     step = (self.paths[self.current_path][self.walk_timer])
                     # if the step is a movement
-                    if step in directions:
-                        self.move(step)
+                    if type(step[0]) is int:
+                        self.goto(step)
                     else:
-                        # otherwise, we just wait for a second
-                        self.wait(1)
+                        # otherwise, we just wait for the time
+                        self.wait(step[1])
                     # get ready for the next step
                     self.walk_timer += 1
                 else:
@@ -395,27 +389,8 @@ class Character(GameObject):
             # when our path is to return. thus, we want to make return a reserved keyword, 
             # and should probably throw an exception when parsing the paths
             elif self.current_path == 'return':
-                # will just go back to home based on x and y difference
-                if self.home_x != 0:
-                    # if we arent at the same x level as the home
-                    if self.home_x <0:
-                        # when home is to the left
-                        self.move('left')
-                    else:
-                        # when home is to the right
-                        self.move('right')
-                elif self.home_y != 0:
-                    # if we aren't at the same y level as the home
-                    if self.home_y < 0:
-                        # when home is above
-                        self.move('up')
-                    else:
-                        # when home is below
-                        self.move('down')
-                else:
-                    self.current_path = self.next_path
-                    self.next_path = None
-            """
+                # when we need to go home
+                self.goto()
     def __follow_path(self):
         """
         this function will do all the checking for the pathfinding
