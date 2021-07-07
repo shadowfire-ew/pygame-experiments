@@ -7,6 +7,7 @@ import pygame
 import scripts.load_images as li
 import scripts.manifest as mf
 import random
+from queue import PriorityQueue
 
 character_config_folder = "resources/characters/"
 
@@ -253,12 +254,38 @@ class Character(GameObject):
         maybe going to try a modified verison of A*
         """
         if self.can_enter(x,y):
+            # don't even try if destination is occupied or untraversable
             print(self.name+" destination un-enterable")
             return None
         else:
-            pass
+            # setting up the frontier/edge
+            edge = PriorityQueue()
+            # our starting node
+            start = (self.x,self.y)
+            # stored like this to sort by priority
+            edge.put((0,start))
+            # our end node for checking equality
+            end = (x,y)
+            # the relative costs to get to the nodes
+            costs = {}
+            # the cost of the start is 0
+            costs[start] = 0
+            # the parents of the nodes, for backtracing
+            parents = {}
+            # the start has no parents, for an end condition
+            parents[start] = None
 
+            # while we still have enqueued objects 
+            while not edge.empty():
+                p,node = edge.get()
+                if node == end:
+                    # do stuff to find relative path
+                    # perhaps convert it into a string series of directions?
+                    return
                 
+            # if we do not find the path, we will end up here
+            return "cannot find path"
+
 
     def __waiting(self):
         """
