@@ -47,6 +47,7 @@ def Astar_char(character,goal_x,goal_y):
     blocked = []
     visited = {}
     start_node = Node(start_x,start_y)
+    end_node = Node(goal_x,goal_y)
     edge = PriorityQueue()
     while head is not None:
         node, head = head.dequeue()
