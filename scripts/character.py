@@ -401,13 +401,13 @@ class Character(GameObject):
             # only want to check these if we have a destination to go to
             # when we are not done walking the path
             if self.pos != self.destination:
-                self.path_timer += 1
                 # get the next desination
                 success = self.move(self.path_to_walk[self.path_timer])
                 if not success:
                     # if our path is blocked since we found the path
                     # recalculate the path
                     self.goto(self.destination)
+                self.path_timer += 1
                 return False
             else:
                 self.destination = None
@@ -421,4 +421,4 @@ class Character(GameObject):
             pos = self.home
         self.destination = pos
         self.path_to_walk = self.find_path(pos)
-        self.path_timer = -1
+        self.path_timer = 0
