@@ -286,6 +286,20 @@ class Character(GameObject):
             # if we do not find the path, we will end up here
             return "cannot find path"
 
+    def neighbors(self,pos=None):
+        if pos is None:
+            pos = (self.x,self.y)
+        
+        rval = []
+
+        for a in [-1,1]:
+            b = (pos[0]+a,pos[1])
+            if self.can_enter(b[0],b[1]):
+                rval.append(b)
+            c = (pos[0],pos[1]+a)
+            if self.can_enter(c[0],c[1]):
+                rval.append(c)
+        return rval
 
     def __waiting(self):
         """
