@@ -99,9 +99,15 @@ class Character(GameObject):
                     path = []
                     path_strings = parser.get(path_n,'path').split('\n')
                     for walk in path_strings:
-                        act,num = walk.split(',')
-                        num = int(num)
-                        path+=[act]*num
+                        x,y = walk.split(',')
+                        y = int(y)
+                        try:
+                            # try to make x an int
+                            x = int(x)
+                        except Exception:
+                            # if it cannot be an int, then it should be left as is
+                            pass
+                        path.append((x,y))
                     self.paths[path_n] = path
             except NoSectionError:
                 print("no paths found for this object: "+self.name)
