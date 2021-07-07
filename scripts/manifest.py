@@ -31,7 +31,6 @@ objects = None
 player = None
 # a helper function
 def check_chars_pos(x,y,name):
-    print(x,y)
     # default return of true, meaning this space is empty
     # will eventually do some logic for different object types, like items and teleporters
     rval = True
@@ -41,8 +40,6 @@ def check_chars_pos(x,y,name):
     else:
         for char in objects:
             # checking the other objects
-            print(char.name)
-            print(char.x,char.y)
             if name != char.name and char.x == x and char.y == y:
                 # if the object isn't this object and is in the position
                 rval = False
