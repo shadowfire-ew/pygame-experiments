@@ -420,6 +420,7 @@ class Character(GameObject):
         """
         this function will do all the checking for the pathfinding
         will return true when the path is complete
+        or when we are not currently following a path
         """
         if self.destination:
             # only want to check these if we have a destination to go to
@@ -434,7 +435,10 @@ class Character(GameObject):
                     self.goto(self.destination)
                 return False
             else:
+                self.destination = None
                 return True
+        else:
+            return True
 
     
     def goto(self,pos = None):
