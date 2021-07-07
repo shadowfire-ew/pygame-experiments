@@ -368,6 +368,7 @@ class Character(GameObject):
         """
         if not self.moving:
             # don't want to do any of these checks when moving
+            """
             # if we have this path
             if self.current_path in self.paths:
                 # if we haven't finished the path
@@ -408,6 +409,7 @@ class Character(GameObject):
                 else:
                     self.current_path = self.next_path
                     self.next_path = None
+            """
     
     def goto(self,pos = None):
         if pos is None:
