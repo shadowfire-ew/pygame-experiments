@@ -80,9 +80,9 @@ class Character(GameObject):
         self.next_path = None
         self.wait_timer = 0
         self.wait_ammount = 0
-        # the home x and home y are the relative offset of the home square (i.e. distance from character)
-        self.home_x = 0
-        self.home_y = 0
+        # the home x and home y are the home square
+        self.home_x = self.x
+        self.home_y = self.y
         # only open this 
         if 'move' in self.actions:
             # want to try opening the path
@@ -186,12 +186,9 @@ class Character(GameObject):
         """
         # get the adjustment ammount for our x and y
         c_x , c_y = direction_to_change(self.direction)
-        # adjusting our x and home offset x
-        self.x += c_x
-        self.home_x -= c_x
-        # adjusting our y and home offset y
+        # adjusting our x and y
         self.y += c_y
-        self.home_y -= c_y
+        self.x += c_x
         # we are no longer moving
         self.moving = 0
         # our visual offset no longer needs to be anything
@@ -411,6 +408,7 @@ class Character(GameObject):
                 else:
                     self.current_path = self.next_path
                     self.next_path = None
+    
     def goto(self,pos = None):
         if pos is None:
             pos = (self.home_x,self.home_y)
