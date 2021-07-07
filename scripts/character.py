@@ -253,7 +253,7 @@ class Character(GameObject):
         trys to find a path pased on current world situation to the destination
         maybe going to try a modified verison of A*
         """
-        if self.can_enter(x,y):
+        if not self.can_enter(x,y):
             # don't even try if destination is occupied or untraversable
             print(self.name+" destination un-enterable")
             return None
