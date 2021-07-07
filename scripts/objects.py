@@ -5,7 +5,7 @@ class GameObject:
     """
     def __init__(self,name,sprite,x,y, width, height = None):
         self.name = name
-        self.pos = self.x,self.y = x,y
+        self.x,self.y = x,y
         self.offx = 0
         self.offy = 0
         self.width = width
@@ -19,7 +19,7 @@ class GameObject:
     
     def get_position(self):
         "returns grid co-ords"
-        return self.pos
+        return (self.x,self.y)
     
     def get_location(self):
         "returns the true location in the image"

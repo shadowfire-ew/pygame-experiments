@@ -403,7 +403,7 @@ class Character(GameObject):
             # and should probably throw an exception when parsing the paths
             elif self.current_path == 'return':
                 # when we need to go home
-                if self.pos == self.home:
+                if (self.x,self.y) == self.home:
                     self.current_path = self.next_path
                     self.next_path = None
                 else:
@@ -418,7 +418,7 @@ class Character(GameObject):
         if self.destination:
             # only want to check these if we have a destination to go to
             # when we are not done walking the path
-            if self.pos != self.destination and self.path_timer < len(self.path_to_walk):
+            if (self.x,self.y) != self.destination and self.path_timer < len(self.path_to_walk):
                 # get the next desination
                 success = self.move(self.path_to_walk[self.path_timer])
                 if not success:
