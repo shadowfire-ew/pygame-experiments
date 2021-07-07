@@ -80,9 +80,11 @@ class Character(GameObject):
         self.next_path = None
         self.wait_timer = 0
         self.wait_ammount = 0
+        self.path_timer = 0
         # the home x and home y are the home square
         self.home_x = self.x
         self.home_y = self.y
+        self.home = self.home_x,self.home_y
         # only open this 
         if 'move' in self.actions:
             # want to try opening the path
