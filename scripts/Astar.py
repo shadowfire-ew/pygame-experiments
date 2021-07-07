@@ -1,6 +1,7 @@
 """
 making a* its own function in a module
 """
+from queue import PriorityQueue
 
 class Node:
     """
@@ -36,16 +37,3 @@ class Node:
     def __eq__(self, o: object) -> bool:
         return self.x == o.x and self.y == o.y
 
-class Priority_Queue:
-    def __init__(self,object,priority):
-        self.obj = object
-        self.priority = priority
-        self.next = None
-    
-    def enqueue(self,other):
-        if self.priority > other.priority:
-            # doing this so that lower priority comes first
-            other.enqueue(self)
-    
-    def dequeue(self):
-        return self.object,self.next
