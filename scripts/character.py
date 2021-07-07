@@ -248,11 +248,14 @@ class Character(GameObject):
         adjust_y = y - mf.level.starty
         return mf.level.get_tile(adjust_x,adjust_y) in modes[self.mode] and mf.check_chars_pos(x,y,self.name)
     
-    def find_path(self, x, y):
+    def find_path(self, pos = None):
         """
         trys to find a path pased on current world situation to the destination
         maybe going to try a modified verison of A*
         """
+        if pos is None:
+            pos = self.destination
+        x,y = pos
         if not self.can_enter(x,y):
             # don't even try if destination is occupied or untraversable
             return "occupied"
