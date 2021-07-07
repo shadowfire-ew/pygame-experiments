@@ -439,6 +439,7 @@ class Character(GameObject):
     
     def goto(self,pos = None):
         if pos is None:
-            pos = (self.home_x,self.home_y)
+            pos = self.home
         self.destination = pos
-        walk = self.find_path()
+        self.path_to_walk = self.find_path(pos)
+        self.path_timer = -1
