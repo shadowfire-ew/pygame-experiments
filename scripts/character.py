@@ -255,7 +255,6 @@ class Character(GameObject):
         """
         if not self.can_enter(x,y):
             # don't even try if destination is occupied or untraversable
-            print(self.name+" destination un-enterable")
             return "occupied"
         else:
             # setting up the frontier/edge
@@ -281,7 +280,6 @@ class Character(GameObject):
                 if node == end:
                     # do stuff to find relative path
                     # perhaps convert it into a string series of directions?
-                    print("path found, to be implemented")
                     nodes = []
                     cnode = node
                     while cnode is not None:
@@ -315,7 +313,6 @@ class Character(GameObject):
                         parents[next] = node
                 
             # if we do not find the path, we will end up here
-            print("cannot find path for "+self.name+" to: "+str((x,y)))
             return "blocked"
 
     def neighbor_cells(self,pos=None):
