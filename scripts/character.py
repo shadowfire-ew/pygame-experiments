@@ -253,7 +253,7 @@ class Character(GameObject):
         maybe going to try a modified verison of A*
         """
         if pos is None:
-            pos = self.destination
+            pos = self.home
         x,y = pos
         if not self.can_enter(x,y):
             # don't even try if destination is occupied or untraversable
