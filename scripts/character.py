@@ -412,6 +412,26 @@ class Character(GameObject):
                     self.current_path = self.next_path
                     self.next_path = None
             """
+    def __follow_path(self):
+        """
+        this function will do all the checking for the pathfinding
+        will return true when the path is complete
+        """
+        if self.destination:
+            # only want to check these if we have a destination to go to
+            # when we are not done walking the path
+            if self.pos != self.destination:
+                self.path_timer += 1
+                # get the next desination
+                success = self.move(self.path_to_walk[self.path_timer])
+                if not success:
+                    # if our path is blocked since we found the path
+                    # recalculate the path
+                    self.goto(self.destination)
+                return False
+            else:
+                return True
+
     
     def goto(self,pos = None):
         if pos is None:
