@@ -40,13 +40,13 @@ def main():
             # checking the event queue
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    player.move('left')
+                    player.turn('left')
                 elif event.key == pygame.K_RIGHT:
-                    player.move('right')
+                    player.turn('right')
                 elif event.key == pygame.K_UP:
-                    player.move('up')
+                    player.turn('up')
                 elif event.key == pygame.K_DOWN:
-                    player.move('down')
+                    player.turn('down')
                 elif event.key == pygame.K_p:
                     print(level_objects[1].get_paths())
                 elif event.key == pygame.K_h:
