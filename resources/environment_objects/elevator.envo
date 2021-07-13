@@ -2,4 +2,4 @@
 sprite = elevator
 animation = elevator_doors
 size = 80
-traversable = True
+traversable = true
