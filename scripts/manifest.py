@@ -19,7 +19,7 @@ size = width,height = (gwidth*tilesize)+(invBarWidth*tilesize)+(invBarMargin*2),
 # object types
 character_types = ["dev1","dev2","player"]
 item_types = []
-env_object_types = []
+env_object_types = ["teleporter","ladder","chest"]
 
 # system framerate
 # calculations are framerate-dependant
