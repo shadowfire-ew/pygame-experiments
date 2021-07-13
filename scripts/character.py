@@ -452,3 +452,17 @@ class Character(GameObject):
             self.path_to_walk = path
             self.path_timer = 0
             self.nogos = 0
+    
+    def moving_to(self):
+        """
+        returns one of two values, depending on if the character is moving
+        if the character is currently moving, it returns the position it will end up in
+        otherwise, it returns false
+        """
+        if self.moving:
+            c_x , c_y = direction_to_change(self.direction)
+            check_x = self.x + c_x
+            check_y = self.y + c_y
+            return (check_x,check_y)
+        else:
+            return False
