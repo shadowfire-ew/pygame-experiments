@@ -24,14 +24,14 @@ class Level:
         self.width = len(self.map[0])
         self.height = len(self.map)
         population = parser.get("level","population")
-        self.objects = []
+        self.characters = []
         if population != "none":
             population = population.split('\n')
             for individual in population:
                 itype = parser.get(individual,"type")
                 ix = int(parser.get(individual,"x"))
                 iy = int(parser.get(individual,"y"))
-                self.objects.append([individual,itype,ix,iy])
+                self.characters.append([individual,itype,ix,iy])
         # find a way to center the level in the image
         self.startx = mf.gwidth//2 - self.width//2
         self.starty = mf.gheight//2 - self.height//2
@@ -138,15 +138,12 @@ class Level:
         
         # preparing the objects
         objects = []
-        for object in self.objects:
+        for object in self.characters:
             name, type, ix, iy = object
             if type in mf.character_types:
                 char = cr.Character(name, type+".char", ix+self.startx, iy+self.starty)
                 objects.append(char)
-            elif type in mf.env_object_types:
-                # dont have env objects programmed yet
-                pass
             else:
-                # because population should only be env objects and characters
-                raise Exception("Population must be only env objects and characters")
+                # because population should only be characters
+                raise Exception("Population must be only characters, "+type+" not found in manifest")
         return image, objects
