@@ -1,4 +1,6 @@
 this folder contains configs for each npc and env object's inventory
 it will only have inventories for those which explicitly have inventories
+might also store player inventory here and have the player's inventory be saved when sessions finish
 
 each inventory will be saved by name
+they may or may not be saved when changed by the player in game. im not sure where i am going with this game
