@@ -33,3 +33,31 @@ class EnvironmentObject(GameObject, abc.Abc):
         self.animation = li.load_animations(anim,size,type='environment')
         # getting our destination
         self.destination = parser.get('details','destination')
+        # can we be walked on?
+        travel = parser.get('details','traversable')
+        if travel == 'true':
+            self.traversable = True
+        else:
+            self.traversable = False
+        # control variables
+        self.frame = -1
+    
+    @abc.abstractclassmethod
+    def do_action(self,character):
+        """
+        this is the function which must behave differently per type
+        and i don't feel like writing case-by-case if's
+        this will be called whenever a character somehow interracts with the object
+        """
+        pass
+
+    def get_overlay(self):
+        """
+        returns the animation for this object, if it is currently running
+        """
+        rval = None
+        if 0 <= self.frame < len(self.animation):
+            rval = self.animation[self.frame]
+            self.frame+=1
+        return rval
+    
