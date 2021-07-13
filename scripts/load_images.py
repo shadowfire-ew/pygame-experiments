@@ -43,7 +43,7 @@ def load_tile_table(filename, width, height = None):
         tile_table.append(line)
     return tile_table
 
-def load_animations(filename, width, height = None):
+def load_animations(filename, width, height = None, type = 'characters'):
     """
     uses a similar method as the tile table loader to load sprites
     this time it will load them all into one array
@@ -52,7 +52,7 @@ def load_animations(filename, width, height = None):
         # in case a height is not included
         height = width
 
-    image = pygame.image.load(location+'sprites/characters/'+filename).convert()
+    image = pygame.image.load(location+'sprites/'+type+'/'+filename).convert()
     im_width, im_height = image.get_size()
     animation = []
     for tile_y in range(0,im_height//height):
