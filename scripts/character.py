@@ -47,6 +47,14 @@ class Character(GameObject):
         self.moving = 0
         self.direction = 0
         self.speed = 0.5
+        self.walk_timer = 0
+        self.current_path = None
+        self.next_path = None
+        self.wait_timer = 0
+        self.wait_ammount = 0
+        self.path_timer = 0
+        self.destination = None
+        self.nogos = 0
         # loading the config for the character type
         parser = ConfigParser()
         parser.read(character_config_folder+config)
@@ -78,15 +86,6 @@ class Character(GameObject):
         # prep the variables used in paths
         # our current paths
         self.paths = {}
-        # some controll variables
-        self.walk_timer = 0
-        self.current_path = None
-        self.next_path = None
-        self.wait_timer = 0
-        self.wait_ammount = 0
-        self.path_timer = 0
-        self.destination = None
-        self.nogos = 0
         # the home x and home y are the home square
         self.home_x = self.x
         self.home_y = self.y
