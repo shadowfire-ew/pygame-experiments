@@ -6,10 +6,11 @@ from configparser import ConfigParser
 from scripts.objects import GameObject
 import pygame
 import scripts.load_images as li
+import abc
 
 env_obj_configs = "resources/environment_objects/"
 
-class EnvironmentObject(GameObject):
+class EnvironmentObject(GameObject, abc.Abc):
     """
     the environment object class
     i want these to be drawn in the background (behind characters)
