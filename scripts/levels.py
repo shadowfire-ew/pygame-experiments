@@ -145,5 +145,5 @@ class Level:
                 objects.append(char)
             else:
                 # because population should only be characters
-                raise Exception("Population must be only characters, "+type+" not found in manifest")
+                raise Exception("Population must be only characters. "+type+" not found in manifest")
         return image, objects
