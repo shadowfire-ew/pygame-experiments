@@ -3,4 +3,4 @@ This folder contains configs, similar to the characters'
 list of objects and what they do:
 - teleporter: sends you to the destination location
 - elevator: sends you to the destination map (destination must have matching one that takes you back)
-- chest: has an inventory
+- chest: has an inventory which can be accessed
