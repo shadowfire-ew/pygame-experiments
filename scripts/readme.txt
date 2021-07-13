@@ -8,10 +8,11 @@ Done:
 - character movement
 - character movement types
 - the player
-In Progress:
 - pathfinding
-To Do: (in no particular order)
 - character paths
+In Progress:
+- environment objects
+To Do: (in no particular order)
 - interractables
 - items and inventory
 - a map editor
