@@ -1,5 +1,6 @@
 import scripts.manifest as mf
-class GameObject:
+import abc
+class GameObject(abc.ABC):
     """
     the base object from which all other objects inherit
     """
