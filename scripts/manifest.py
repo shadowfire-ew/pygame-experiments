@@ -34,8 +34,10 @@ level_image = None
 
 # a helper function
 def check_chars_pos(x,y,name):
-    # default return of true, meaning this space is empty
-    # will eventually do some logic for different object types, like items and teleporters
+    """
+    default return of true, meaning this space is empty
+    will eventually do some logic for different object types, like items and teleporters
+    """
     rval = True
     if name !=player and ((player.x == x and player.y == y)or (x,y)==player.moving_to()):
         # if the player is in the position
