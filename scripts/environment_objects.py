@@ -50,7 +50,8 @@ class EnvironmentObject(GameObject, abc.Abc):
         and i don't feel like writing case-by-case if's
         this will be called whenever a character somehow interracts with the object
         """
-        pass
+        self.frame = 0
+        return self.destination.split(',')
 
     def get_overlay(self):
         """
