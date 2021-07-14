@@ -36,13 +36,13 @@ def check_chars_pos(x,y,name):
     # default return of true, meaning this space is empty
     # will eventually do some logic for different object types, like items and teleporters
     rval = True
-    if name !=player.name and ((player.x == x and player.y == y)or (x,y)==player.moving_to()):
+    if name !=player and ((player.x == x and player.y == y)or (x,y)==player.moving_to()):
         # if the player is in the position
         rval = False
     else:
         for char in objects:
             # checking the other objects
-            if name != char.name and ((char.x == x and char.y == y) or (x,y)==char.moving_to()):
+            if name != char and ((char.x == x and char.y == y) or (x,y)==char.moving_to()):
                 # if the object isn't this object and is in the position
                 # or the object is moving to the position
                 rval = False
