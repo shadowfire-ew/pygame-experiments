@@ -465,3 +465,6 @@ class Character(GameObject):
             return (check_x,check_y)
         else:
             return False
+
+    def __eq__(self, o: object) -> bool:
+        return o == self.name
