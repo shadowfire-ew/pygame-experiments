@@ -1,4 +1,3 @@
-import scripts.character as cr
 import scripts.manifest as mf
 import pygame
 
@@ -30,8 +29,9 @@ def main():
     level_objects = mf.objects
 
     #initializing the player
-    mf.player = cr.Character("Player","player.char", 10, 7)
     player = mf.player
+    player.x = 10
+    player.y = 7
 
     while True:
         #main loop
