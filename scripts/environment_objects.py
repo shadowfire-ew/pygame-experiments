@@ -6,6 +6,7 @@ from configparser import ConfigParser
 from scripts.objects import GameObject
 import pygame
 import scripts.load_images as li
+import scripts.manifest as mf
 import abc
 
 env_obj_configs = "resources/environment_objects/"
@@ -61,3 +62,11 @@ class EnvironmentObject(GameObject, abc.Abc):
             self.frame+=1
         return rval
     
+class Elevator(EnvironmentObject):
+    """
+    the elevator class
+    only overrides the do_action function
+    """
+    def do_action(self, character):
+        if character == mf.player:
+            # do stuff
