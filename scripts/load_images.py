@@ -32,7 +32,7 @@ def load_tile_table(filename, width, height = None):
         # in case a height is not included
         height = width
 
-    image = pygame.image.load(location+'tilesets/'+filename).convert()
+    image = pygame.image.load(location+'tilesets/'+filename)
     im_width, im_height = image.get_size()
     tile_table = []
     for tile_y in range(0, im_height//height):
@@ -52,7 +52,7 @@ def load_animations(filename, width, height = None, type = 'characters'):
         # in case a height is not included
         height = width
 
-    image = pygame.image.load(location+'sprites/'+type+'/'+filename).convert()
+    image = pygame.image.load(location+'sprites/'+type+'/'+filename)
     im_width, im_height = image.get_size()
     animation = []
     for tile_y in range(0,im_height//height):
