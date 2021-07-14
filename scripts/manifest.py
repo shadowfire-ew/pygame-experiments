@@ -28,7 +28,7 @@ framerate = 30
 
 # storage of some globally accessed features, such as the level
 level = Level()
-objects = None
+characters = None
 player = cr.Character("Player","player.char", 10, 7)
 level_image = None
 
@@ -43,7 +43,7 @@ def check_chars_pos(x,y,name):
         # if the player is in the position
         rval = False
     else:
-        for char in objects:
+        for char in characters:
             # checking the other objects
             if name != char and ((char.x == x and char.y == y) or (x,y)==char.moving_to()):
                 # if the object isn't this object and is in the position
@@ -56,4 +56,5 @@ def load_level(level_name):
     loads the next level and game objects
     """
     level.load_file(level_name)
-    level_image, objects = level.render
+    global characters, level_image
+    level_image,characters = level.render()
