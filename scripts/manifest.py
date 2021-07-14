@@ -3,6 +3,7 @@ moved these here for convenience
 these values are shared among many files
 """
 from scripts.levels import Level
+import scripts.character as cr
 
 # layout features
 # size of tiles in pixels
@@ -28,13 +29,14 @@ framerate = 30
 # storage of some globally accessed features, such as the level
 level = Level()
 objects = None
-player = None
+player = cr.Character("Player","player.char", 10, 7)
+
 # a helper function
 def check_chars_pos(x,y,name):
     # default return of true, meaning this space is empty
     # will eventually do some logic for different object types, like items and teleporters
     rval = True
-    if name != "Player" and ((player.x == x and player.y == y)or (x,y)==player.moving_to()):
+    if name !=player.name and ((player.x == x and player.y == y)or (x,y)==player.moving_to()):
         # if the player is in the position
         rval = False
     else:
