@@ -66,8 +66,11 @@ class EnvironmentObject(GameObject, abc.Abc):
 class Elevator(EnvironmentObject):
     """
     the elevator class
-    only overrides the do_action function
     """
     def do_action(self, character):
+        """
+        loads the next level and
+        move the player to the correct x and y
+        """
         if character == mf.player:
             # do stuff
