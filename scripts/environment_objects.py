@@ -95,5 +95,7 @@ class Chest(EnvironmentObject):
     the chest object
     """
     def do_action(self, character):
-        return super().do_action(character)
+        if character == mf.player:
+            # open the inventory window
+            pass
 
