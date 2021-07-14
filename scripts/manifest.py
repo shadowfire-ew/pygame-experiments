@@ -30,6 +30,7 @@ framerate = 30
 level = Level()
 objects = None
 player = cr.Character("Player","player.char", 10, 7)
+level_image = None
 
 # a helper function
 def check_chars_pos(x,y,name):
@@ -47,3 +48,10 @@ def check_chars_pos(x,y,name):
                 # or the object is moving to the position
                 rval = False
     return rval
+
+def load_level(level_name):
+    """
+    loads the next level and game objects
+    """
+    level.load_file(level_name)
+    level_image, objects = level.render
