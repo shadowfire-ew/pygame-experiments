@@ -13,6 +13,14 @@ class GameObject:
             height = width
         self.height = height
         self.sprite = sprite
+        
+    def __eq__(self, o: object) -> bool:
+        """
+        checks the other object's equality with this character's name
+        written this way to allow for checking like: "name" == character
+        """
+        return o == self.name
+
     
     def draw(self):
         return self.sprite
