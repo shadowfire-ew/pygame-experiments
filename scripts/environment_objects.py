@@ -73,4 +73,27 @@ class Elevator(EnvironmentObject):
         move the player to the correct x and y
         """
         if character == mf.player:
-            # do stuff
+            # this will load the next level
+            level,x,y = super().do_action(character)
+
+class Teleporter(EnvironmentObject):
+    """
+    the teleporter object
+    """
+    def do_action(self, character):
+        """
+        teleports the character to the destination
+        """
+        x,y = super().do_action(character)
+        x = int(x)
+        y = int(y)
+        character.x=x
+        character.y=y
+
+class Chest(EnvironmentObject):
+    """
+    the chest object
+    """
+    def do_action(self, character):
+        return super().do_action(character)
+
