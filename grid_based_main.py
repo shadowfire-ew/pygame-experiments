@@ -23,10 +23,7 @@ def main():
     fpsClock = pygame.time.Clock()
 
     # loading the level
-    test_level = mf.level
-    test_level.load_file("dev.map")
-    level_image, mf.objects = test_level.render()
-    level_objects = mf.objects
+    mf.load_level("dev.map")
 
     #initializing the player
     player = mf.player
@@ -48,13 +45,13 @@ def main():
                 elif event.key == pygame.K_DOWN:
                     player.move('down')
                 elif event.key == pygame.K_p:
-                    print(level_objects[1].get_paths())
+                    print(mf.characters[1].get_paths())
                 elif event.key == pygame.K_h:
-                    level_objects[1].set_next_path(None)
+                    mf.characters[1].set_next_path(None)
                 elif event.key == pygame.K_c:
-                    level_objects[1].set_next_path('circle')
+                    mf.characters[1].set_next_path('circle')
                 elif event.key == pygame.K_m:
-                    level_objects[1].set_next_path('mozy')
+                    mf.characters[1].set_next_path('mozy')
                 elif event.key == pygame.K_e:
                     print(player.find_path(5,6))
             elif event.type == pygame.MOUSEBUTTONDOWN:
@@ -74,12 +71,12 @@ def main():
         # clear background
         screen.fill(bg)
         # update the background
-        screen.blit(level_image,(0,0))
+        screen.blit(mf.level_image,(0,0))
         # the overlays
         # fore ground stuff
-        for obj in level_objects:
-            image = obj.draw()
-            pos = obj.get_location()
+        for char in mf.characters:
+            image = char.draw()
+            pos = char.get_location()
             screen.blit(image,pos)
         # the player
         image = player.draw()
