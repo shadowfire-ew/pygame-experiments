@@ -11,8 +11,9 @@ Done:
 - pathfinding
 - character paths
 In Progress:
-- environment objects
+- on hold
 To Do: (in no particular order)
+- environment objects
 - interractables
 - items and inventory
 - a map editor
