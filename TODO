@@ -1,0 +1,7 @@
+grid_based:
+- Make a level editor
+- Find a way to allow for levels greater than the grid size
+- additional levels
+
+dungeon_crawler:
+- decide how random the dungeons should be
