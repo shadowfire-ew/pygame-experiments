@@ -13,6 +13,7 @@ key = {
     '^':"water"
 }
 
+# TODO: have a procedural/random level generation algorithm (i.e. wavefunction collapse, gausian sound?)
 class Level:
     def load_file(self, filename):
         self.map = []

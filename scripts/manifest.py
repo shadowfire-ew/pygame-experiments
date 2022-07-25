@@ -15,9 +15,11 @@ invBarWidth = 4
 # the width of the margin on both sides of the inventory bar, in pixels
 invBarMargin = 10
 # the overall size of the window in pixels
+# TODO: allow dynamic scaling with this as the default values
 size = width,height = (gwidth*tilesize)+(invBarWidth*tilesize)+(invBarMargin*2),(gheight*tilesize)
 
 # object types
+# TODO: use os/pathlib to dynamically detect these values
 character_types = ["dev1","dev2","player"]
 item_types = []
 env_object_types = ["teleporter","elevator","chest"]

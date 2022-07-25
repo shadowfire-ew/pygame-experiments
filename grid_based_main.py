@@ -26,6 +26,7 @@ def main():
     mf.load_level("dev.map")
 
     #initializing the player
+    #TODO: Make player position dynamic with level loading (looking for elevator name 'entrance' perhaps?)
     player = mf.player
     player.x = 10
     player.y = 7
