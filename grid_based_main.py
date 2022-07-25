@@ -56,7 +56,9 @@ def main():
                     print(player.find_path(5,6))
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mx,my =  pygame.mouse.get_pos()
-                dx,dy = mx//80,my//80
+                # normalize mouse position to tile number
+                dx,dy = mx//mf.tilesize,my//mf.tilesize
+                # determine if the click is within bounds
                 if 0<=dx<mf.gwidth and 0<=dy<mf.gheight:
                     player.goto((dx,dy))
                 
