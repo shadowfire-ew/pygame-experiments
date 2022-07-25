@@ -11,6 +11,8 @@ from queue import PriorityQueue
 
 character_config_folder = "resources/characters/"
 
+extension = '.char'
+
 directions = {
     'up':0,
     'left':1,
@@ -57,7 +59,7 @@ class Character(GameObject):
         self.nogos = 0
         # loading the config for the character type
         parser = ConfigParser()
-        parser.read(character_config_folder+config)
+        parser.read(character_config_folder+config+extension)
         # getting our size (pixels)
         size = int(parser.get("character","size"))
         # getting our idle wait timer

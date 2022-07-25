@@ -31,7 +31,7 @@ framerate = 30
 # storage of some globally accessed features, such as the level
 level = Level()
 characters = None
-player = cr.Character("Player","player.char", 10, 7)
+player = cr.Character("Player","player", 10, 7)
 level_image = None
 
 # a helper function

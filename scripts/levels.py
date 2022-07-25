@@ -142,7 +142,7 @@ class Level:
         for object in self.characters:
             name, type, ix, iy = object
             if type in mf.character_types:
-                char = cr.Character(name, type+".char", ix+self.startx, iy+self.starty)
+                char = cr.Character(name, type, ix+self.startx, iy+self.starty)
                 objects.append(char)
             else:
                 # because population should only be characters
